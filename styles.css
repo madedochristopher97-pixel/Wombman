@@ -719,7 +719,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   5. INGREDIENT STORY SECTION (Alternating Editorial Rows)
+   5. INGREDIENT STORY SECTION (Full Bleed Edge-to-Edge Editorial Cards)
    -------------------------------------------------------------------------- */
 .ingredient-story {
   background-color: var(--color-cream-light);
@@ -735,13 +735,12 @@ img {
 .ingredient-row {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-6);
-  align-items: center;
   background: var(--color-white);
   border-radius: var(--radius-xl);
-  padding: var(--space-6);
+  overflow: hidden; /* Flush edge-to-edge image clipped to rounded card corners */
   border: 1px solid var(--color-border-light);
   box-shadow: var(--shadow-subtle);
+  padding: 0 !important; /* Zero padding on card container so image is 100% full-bleed */
   transition: all var(--transition-smooth);
 }
 
@@ -750,36 +749,11 @@ img {
   border-color: var(--color-border);
 }
 
-@media (min-width: 992px) {
-  .ingredient-row {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-10);
-    padding: var(--space-8);
-  }
-
-  .ingredient-row.reverse .ingredient-content {
-    order: 2;
-  }
-
-  .ingredient-row.reverse .ingredient-img-wrapper {
-    order: 1;
-  }
-}
-
-/* Mobile (< 992px): Image on top, text underneath */
-@media (max-width: 991px) {
-  .ingredient-row .ingredient-img-wrapper {
-    order: 1 !important;
-  }
-  .ingredient-row .ingredient-content {
-    order: 2 !important;
-  }
-}
-
 .ingredient-img-wrapper {
   width: 100%;
-  height: clamp(260px, 35vh, 360px);
-  border-radius: var(--radius-lg);
+  height: 100%;
+  min-height: 300px;
+  border-radius: 0 !important;
   overflow: hidden;
 }
 
@@ -787,6 +761,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   transition: transform var(--transition-slow);
 }
 
@@ -797,7 +772,56 @@ img {
 .ingredient-content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: var(--space-2);
+  padding: var(--space-8) var(--space-6);
+}
+
+@media (min-width: 992px) {
+  .ingredient-row {
+    grid-template-columns: 1fr 1fr; /* 50% image, 50% text */
+    min-height: 380px;
+  }
+
+  .ingredient-content {
+    padding: var(--space-10) var(--space-8);
+  }
+
+  /* Standard row: Image Left (50%), Text Right (50%) */
+  .ingredient-row .ingredient-img-wrapper {
+    order: 1;
+  }
+  .ingredient-row .ingredient-content {
+    order: 2;
+  }
+
+  /* Reverse row: Text Left (50%), Image Right (50%) */
+  .ingredient-row.reverse .ingredient-img-wrapper {
+    order: 2;
+  }
+  .ingredient-row.reverse .ingredient-content {
+    order: 1;
+  }
+}
+
+/* Mobile (< 992px): Image covers full upper half (top, left, right zero padding), text underneath */
+@media (max-width: 991px) {
+  .ingredient-row {
+    grid-template-columns: 1fr;
+  }
+
+  .ingredient-row .ingredient-img-wrapper,
+  .ingredient-row.reverse .ingredient-img-wrapper {
+    order: 1 !important;
+    height: 260px;
+    min-height: 260px;
+  }
+
+  .ingredient-row .ingredient-content,
+  .ingredient-row.reverse .ingredient-content {
+    order: 2 !important;
+    padding: var(--space-6) var(--space-5);
+  }
 }
 
 .ingredient-title {
@@ -2027,6 +2051,44 @@ img {
     color: var(--color-cream-light);
     text-align: center;
     text-shadow: none !important;
+  }
+
+  /* Signature Product Spotlight Mobile Responsiveness Fixes */
+  .product-main-title {
+    font-size: clamp(1.75rem, 6.5vw, 2.4rem);
+    line-height: 1.15;
+    word-break: break-word;
+  }
+  .product-sub {
+    font-size: 1.05rem;
+  }
+  .price-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+  .current-price {
+    font-size: 1.85rem;
+  }
+  .price-note {
+    font-size: 0.8125rem;
+  }
+  .product-actions {
+    width: 100%;
+  }
+  .product-actions .btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    font-size: 0.8125rem !important;
+    padding: 14px 16px !important;
+  }
+  .ritual-tabs .tab-buttons {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 4px;
+  }
+  .main-image-container {
+    height: 380px;
   }
 }
 
