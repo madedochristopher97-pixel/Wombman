@@ -1,0 +1,2119 @@
+/* ==========================================================================
+   WOMBMAN BOTANICAL WELLNESS - DESIGN SYSTEM & STYLESHEET
+   Brand Colors:
+   - Primary Orange: #F79307
+   - Deep Berry: #7B323B
+   - Warm Cream: #EFEFD7
+   Custom Typography:
+   - Display Headlines: Milk & Honey, Milk and Honey, Cormorant Garamond, Playfair Display, serif
+   - Secondary Headings: Miracle Regular, Miracle, Italiana, Cormorant Garamond, serif
+   - Body Text: Mograph Font Regular, Mograph Font, Mogra Variable, Mogra, Plus Jakarta Sans, sans-serif
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Google Fonts Fallback Imports (Ensures baseline elegant rendering)
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Italiana&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Mogra&display=swap');
+
+/* --------------------------------------------------------------------------
+   CSS Variables & Design Tokens (8px Grid System)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Core Brand Colors */
+  --color-orange: #F79307;
+  --color-orange-hover: #E08200;
+  --color-orange-light: rgba(247, 147, 7, 0.12);
+  --color-orange-glow: rgba(247, 147, 7, 0.25);
+
+  --color-berry: #7B323B;
+  --color-berry-dark: #4A1B22;
+  --color-berry-hover: #63262E;
+  --color-berry-light: rgba(123, 50, 59, 0.08);
+  --color-berry-glow: rgba(123, 50, 59, 0.18);
+
+  --color-cream: #EFEFD7;
+  --color-cream-light: #FDFCF7;
+  --color-cream-dark: #E2E2C5;
+  --color-cream-tint: rgba(239, 239, 215, 0.7);
+
+  --color-text-dark: #2C1418;
+  --color-text-muted: #61464B;
+  --color-text-light: #8E7176;
+  --color-text-white: #FFFFFF;
+
+  --color-white: #FFFFFF;
+  --color-border: rgba(123, 50, 59, 0.15);
+  --color-border-light: rgba(123, 50, 59, 0.08);
+
+  /* Typography Stacks (Custom Installed Fonts) */
+  --font-display: "Milk & Honey", "Milk and Honey", "Cormorant Garamond", "Playfair Display", serif;
+  --font-secondary: "Miracle Regular", "Miracle", "Italiana", "Cormorant Garamond", serif;
+  --font-body: "Mograph Font", "Mograph", "Mograph Font Regular", "Mograph-Regular", system-ui, sans-serif;
+
+  /* Spacing Scale (8px Grid System) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-10: 80px;
+  --space-12: 96px;
+  --space-16: 128px;
+
+  /* Layout & Container */
+  --site-max-width: 1280px;
+  --header-height: 90px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  /* Elevation Shadows */
+  --shadow-subtle: 0 4px 20px rgba(44, 20, 24, 0.04);
+  --shadow-medium: 0 12px 36px rgba(44, 20, 24, 0.08);
+  --shadow-hover: 0 20px 48px rgba(44, 20, 24, 0.14);
+  --shadow-berry: 0 12px 30px rgba(123, 50, 59, 0.2);
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   Reset & Base Styles
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-text-dark);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text-dark);
+  line-height: 1.15;
+  font-weight: normal;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-secondary {
+  font-family: var(--font-secondary);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button, input, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Utility Containers */
+.container {
+  width: 100%;
+  max-width: var(--site-max-width);
+  margin: 0 auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+}
+
+.section-padding {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+}
+
+@media (min-width: 992px) {
+  .section-padding {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+}
+
+/* Subtitles & Eyebrow Badges (Clean Unboxed Text) */
+.eyebrow {
+  display: inline-block;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  color: var(--color-berry);
+  font-family: var(--font-secondary);
+  font-size: 0.875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+  font-weight: 600;
+}
+
+.eyebrow-orange {
+  background: none !important;
+  border: none !important;
+  color: var(--color-orange);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto var(--space-10) auto;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  color: var(--color-text-dark);
+  margin-bottom: var(--space-2);
+}
+
+.section-subtitle {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons & CTAs (Feminine, Premium Flat, Rectangular Sharp Edges)
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 14px 34px;
+  border-radius: 0px !important; /* Rectangular sharp edges */
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: 1.5px solid transparent;
+  background: transparent;
+  transition: color var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast);
+  box-shadow: none !important;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  border-color: var(--color-orange);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-orange-hover);
+  border-color: var(--color-orange-hover);
+  transform: translateY(-2px);
+  box-shadow: none !important;
+}
+
+.btn-berry {
+  background-color: var(--color-berry);
+  color: var(--color-white);
+  border-color: var(--color-berry);
+}
+
+.btn-berry:hover {
+  background-color: var(--color-berry-hover);
+  border-color: var(--color-berry-hover);
+  transform: translateY(-2px);
+  box-shadow: none !important;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-berry);
+  border: 1.5px solid var(--color-berry);
+}
+
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-berry);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition-smooth);
+}
+
+.btn-outline:hover {
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+.btn-outline:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.btn-white {
+  background-color: var(--color-white);
+  color: var(--color-berry);
+  border-color: var(--color-white);
+  border-radius: 0px !important;
+}
+
+.btn-white:hover {
+  background-color: var(--color-cream-light);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO SECTION (Right-Aligned Layout with Hero 2.png)
+   -------------------------------------------------------------------------- */
+.hero-meadowell {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: calc(var(--header-height) + var(--space-6));
+  padding-bottom: var(--space-12);
+  overflow: hidden;
+  background-color: var(--color-cream);
+}
+
+.hero-meadowell-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-meadowell-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.hero-meadowell-overlay {
+  display: none;
+}
+
+.hero-meadowell-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-meadowell-content-right {
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: var(--space-4);
+}
+
+/* Main Headline: Cleanse. Steam. Restore. (Mograph Font, Cream Color - NO SHADOW) */
+.hero-headline-cream {
+  font-family: var(--font-body); /* Mograph Font */
+  font-size: clamp(3rem, 6.5vw, 5.2rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--color-cream-light); /* Cream Color (#FDFCF7) */
+  letter-spacing: -0.01em;
+  text-shadow: none !important; /* Removed text shadow as requested */
+}
+
+/* Supporting Paragraph: 100% organic herbal steams to honor your cycle. (Mograph Font, Berry Dark Color - NO SHADOW) */
+.hero-subtext-berry {
+  font-family: var(--font-body); /* Mograph Font */
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  font-weight: 600;
+  color: var(--color-berry-dark); /* Berry Dark (#4A1B22) */
+  line-height: 1.55;
+  text-shadow: none !important; /* Removed text shadow as requested */
+}
+
+/* --------------------------------------------------------------------------
+   1. NAVIGATION HEADER
+   -------------------------------------------------------------------------- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 1000;
+  transition: all var(--transition-smooth);
+}
+
+.header.scrolled {
+  background-color: rgba(239, 239, 215, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 20px rgba(44, 20, 24, 0.06);
+  height: 76px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* Logo: ICON ONLY (No text wordmark) */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  height: 52px;
+}
+
+.nav-logo img, .nav-logo svg {
+  height: 48px;
+  width: auto;
+  transition: transform var(--transition-smooth);
+}
+
+.nav-logo:hover img, .nav-logo:hover svg {
+  transform: scale(1.06);
+}
+
+.nav-menu {
+  display: none;
+  align-items: center;
+  gap: var(--space-4);
+  list-style: none;
+}
+
+@media (min-width: 992px) {
+  .nav-menu {
+    display: flex;
+  }
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text-dark);
+  letter-spacing: 0.02em;
+  position: relative;
+  padding: 4px 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-orange);
+  transition: width var(--transition-fast);
+  border-radius: 2px;
+}
+
+.nav-link:hover {
+  color: var(--color-berry);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  padding: 8px;
+  z-index: 1001;
+}
+
+@media (min-width: 992px) {
+  .mobile-toggle {
+    display: none;
+  }
+}
+
+.mobile-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-berry);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.mobile-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-toggle.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Nav Drawer */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 380px;
+  height: 100vh;
+  background-color: var(--color-cream-light);
+  box-shadow: -10px 0 40px rgba(44, 20, 24, 0.15);
+  z-index: 999;
+  padding: var(--header-height) var(--space-4) var(--space-6) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: right var(--transition-smooth);
+}
+
+.mobile-nav.active {
+  right: 0;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.mobile-nav-link {
+  font-family: var(--font-secondary);
+  font-size: 1.5rem;
+  color: var(--color-text-dark);
+  display: block;
+  padding: var(--space-1) 0;
+}
+
+.mobile-nav-link:hover {
+  color: var(--color-orange);
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO SECTION (Right-Aligned Layout with Hero 2.png)
+   -------------------------------------------------------------------------- */
+.hero-meadowell {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: calc(var(--header-height) + var(--space-6));
+  padding-bottom: var(--space-12);
+  overflow: hidden;
+  background-color: var(--color-cream);
+}
+
+.hero-meadowell-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-meadowell-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.hero-meadowell-overlay {
+  display: none;
+}
+
+.hero-meadowell-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-meadowell-content-right {
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: var(--space-4);
+}
+
+/* Main Headline: Cleanse. Steam. Restore. (Mograph Font, Cream Color) */
+.hero-headline-cream {
+  font-family: var(--font-body); /* Mograph Font */
+  font-size: clamp(3rem, 6.5vw, 5.2rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--color-cream-light); /* Cream Color (#FDFCF7) */
+  letter-spacing: -0.01em;
+  text-shadow: 0 4px 20px rgba(44, 20, 24, 0.55), 0 2px 4px rgba(44, 20, 24, 0.4);
+}
+
+/* Supporting Paragraph: 100% organic herbal steams to honor your cycle. (Mograph Font, Berry Dark Color) */
+.hero-subtext-berry {
+  font-family: var(--font-body); /* Mograph Font */
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  font-weight: 600;
+  color: var(--color-berry-dark); /* Berry Dark (#4A1B22) */
+  line-height: 1.55;
+  text-shadow: 0 1px 8px rgba(253, 252, 247, 0.8);
+}
+
+.hero-meadowell-cta-wrap {
+  margin-top: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   MEADOWELL SECTION 2: "Your body tells a complete story"
+   -------------------------------------------------------------------------- */
+.section-story {
+  background-color: var(--color-cream);
+  padding: var(--space-12) 0;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .story-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+}
+
+.story-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.story-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+  color: var(--color-text-dark);
+  line-height: 1.15;
+  margin-bottom: var(--space-4);
+}
+
+.story-logo-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: var(--space-4);
+}
+
+.story-desc {
+  font-family: var(--font-body);
+  font-size: 0.975rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: var(--space-6);
+}
+
+/* Diagrammatic Photo Layout */
+.story-right {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+}
+
+.story-img {
+  width: 100%;
+  height: clamp(480px, 60vh, 620px);
+  object-fit: cover;
+}
+
+.story-diagram-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(44, 20, 24, 0.1) 0%, rgba(44, 20, 24, 0.4) 100%);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   5. INGREDIENT STORY SECTION (Alternating Editorial Rows)
+   -------------------------------------------------------------------------- */
+.ingredient-story {
+  background-color: var(--color-cream-light);
+  position: relative;
+}
+
+.ingredients-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.ingredient-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  align-items: center;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--transition-smooth);
+}
+
+.ingredient-row:hover {
+  box-shadow: var(--shadow-medium);
+  border-color: var(--color-border);
+}
+
+@media (min-width: 992px) {
+  .ingredient-row {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-10);
+    padding: var(--space-8);
+  }
+
+  .ingredient-row.reverse .ingredient-content {
+    order: 2;
+  }
+
+  .ingredient-row.reverse .ingredient-img-wrapper {
+    order: 1;
+  }
+}
+
+/* Mobile (< 992px): Image on top, text underneath */
+@media (max-width: 991px) {
+  .ingredient-row .ingredient-img-wrapper {
+    order: 1 !important;
+  }
+  .ingredient-row .ingredient-content {
+    order: 2 !important;
+  }
+}
+
+.ingredient-img-wrapper {
+  width: 100%;
+  height: clamp(260px, 35vh, 360px);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.ingredient-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.ingredient-row:hover .ingredient-img {
+  transform: scale(1.04);
+}
+
+.ingredient-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.ingredient-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3.8vw, 3rem);
+  color: var(--color-text-dark);
+  line-height: 1.1;
+}
+
+.ingredient-botanical {
+  font-family: var(--font-secondary);
+  font-size: 1.15rem;
+  color: var(--color-berry);
+  font-style: italic;
+  margin-bottom: var(--space-1);
+}
+
+.ingredient-desc {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   MEADOWELL SECTION 3: "Why Work With Us" / Sustained Healing
+   -------------------------------------------------------------------------- */
+.section-why-us {
+  background-color: var(--color-cream-dark);
+  padding: var(--space-12) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 992px) {
+  .why-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+}
+
+.why-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 480px;
+}
+
+.why-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-berry);
+}
+
+.why-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  color: var(--color-text-dark);
+  line-height: 1.15;
+}
+
+.why-desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.why-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.why-feature-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.why-feature-icon {
+  font-size: 1.6rem;
+  color: var(--color-berry);
+}
+
+.why-feature-title {
+  font-family: var(--font-secondary);
+  font-size: 1.35rem;
+  color: var(--color-text-dark);
+}
+
+.why-feature-text {
+  font-family: var(--font-body);
+  font-size: 0.925rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+
+.hero-trust-mini {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.hero-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.hero-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid var(--color-cream);
+  object-fit: cover;
+  margin-left: -10px;
+}
+
+.hero-avatar:first-child {
+  margin-left: 0;
+}
+
+.hero-trust-text {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.3;
+}
+
+.hero-trust-text strong {
+  color: var(--color-text-dark);
+  display: block;
+}
+
+/* Floating Product Card in Hero */
+.hero-product-card {
+  position: relative;
+  background: rgba(253, 252, 247, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(123, 50, 59, 0.15);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-hover);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 380px;
+  margin: 0 auto;
+  transition: transform var(--transition-smooth);
+}
+
+.hero-product-card:hover {
+  transform: translateY(-6px);
+}
+
+.hero-product-badge {
+  position: absolute;
+  top: -16px;
+  right: var(--space-4);
+  background: var(--color-orange);
+  color: var(--color-white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 12px var(--color-orange-glow);
+}
+
+.hero-product-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-3);
+}
+
+.hero-product-info {
+  text-align: center;
+  width: 100%;
+}
+
+.hero-product-title {
+  font-family: var(--font-secondary);
+  font-size: 1.35rem;
+  color: var(--color-text-dark);
+  margin-bottom: 4px;
+}
+
+.hero-product-sub {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.hero-product-price {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-berry);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   3. TRUST BAR SECTION
+   -------------------------------------------------------------------------- */
+.trust-bar {
+  background-color: var(--color-cream-light);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-6) 0;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .trust-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .trust-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-1);
+  padding: var(--space-2);
+}
+
+.trust-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-orange-light);
+  color: var(--color-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: var(--space-1);
+}
+
+.trust-title {
+  font-family: var(--font-secondary);
+  font-size: 1.05rem;
+  color: var(--color-text-dark);
+}
+
+.trust-desc {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   4. PRODUCT SPOTLIGHT SECTION
+   -------------------------------------------------------------------------- */
+.product-spotlight {
+  background-color: var(--color-cream);
+}
+
+.spotlight-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .spotlight-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+}
+
+/* Gallery Showcase */
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.main-image-container {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+}
+
+@media (min-width: 768px) {
+  .main-image-container {
+    height: 560px;
+  }
+}
+
+.main-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.main-image-container:hover .main-product-img {
+  transform: scale(1.04);
+}
+
+.thumbnail-row {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.thumb-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 2px solid transparent;
+  opacity: 0.7;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.thumb-btn.active, .thumb-btn:hover {
+  border-color: var(--color-orange);
+  opacity: 1;
+}
+
+.thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Product Details */
+.product-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.rating-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.stars {
+  color: var(--color-orange);
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
+
+.product-main-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  color: var(--color-text-dark);
+  line-height: 1.1;
+}
+
+.product-sub {
+  font-family: var(--font-secondary);
+  font-size: 1.25rem;
+  color: var(--color-berry);
+}
+
+.price-box {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.current-price {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  color: var(--color-berry);
+  font-weight: 700;
+}
+
+.price-note {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.product-description {
+  font-size: 1rem;
+  color: var(--color-text-dark);
+  line-height: 1.7;
+}
+
+.benefits-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.benefits-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.95rem;
+  color: var(--color-text-dark);
+}
+
+.benefits-list li::before {
+  content: '✦';
+  color: var(--color-orange);
+  font-size: 0.9rem;
+}
+
+/* Tabs Guide */
+.ritual-tabs {
+  margin-top: var(--space-2);
+}
+
+.tab-buttons {
+  display: flex;
+  gap: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-3);
+}
+
+.tab-btn {
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-secondary);
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.tab-btn.active {
+  color: var(--color-berry);
+  font-weight: 600;
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-berry);
+}
+
+.tab-pane {
+  display: none;
+  font-size: 0.925rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+/* Purchase Actions */
+.product-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  margin-top: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   5. INGREDIENT STORY SECTION
+   -------------------------------------------------------------------------- */
+.ingredient-story {
+  background-color: var(--color-cream-light);
+  position: relative;
+}
+
+.ingredients-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 600px) {
+  .ingredients-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .ingredients-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .ingredients-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.ingredient-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.ingredient-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-orange);
+}
+
+.ingredient-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.ingredient-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.ingredient-card:hover .ingredient-img {
+  transform: scale(1.08);
+}
+
+.ingredient-content {
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.ingredient-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--color-text-dark);
+  margin-bottom: var(--space-1);
+}
+
+.ingredient-botanical {
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  color: var(--color-berry);
+  font-style: italic;
+  margin-bottom: var(--space-2);
+}
+
+.ingredient-desc {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+/* --------------------------------------------------------------------------
+   6. WHY WOMEN LOVE WOMBMAN (BENEFITS)
+   -------------------------------------------------------------------------- */
+.benefits-section {
+  background-color: var(--color-cream);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .benefits-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.benefit-card {
+  background-color: var(--color-cream-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  transition: all var(--transition-smooth);
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--color-berry);
+}
+
+.benefit-number {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--color-orange);
+  line-height: 1;
+  margin-bottom: var(--space-2);
+  opacity: 0.8;
+}
+
+.benefit-title {
+  font-family: var(--font-secondary);
+  font-size: 1.4rem;
+  color: var(--color-text-dark);
+  margin-bottom: var(--space-2);
+}
+
+.benefit-text {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   7. MEET THE FOUNDER SECTION
+   -------------------------------------------------------------------------- */
+.founder-section {
+  background-color: var(--color-cream-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.founder-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .founder-grid {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: var(--space-12);
+  }
+}
+
+.founder-img-frame {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-hover);
+}
+
+.founder-img {
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+}
+
+.founder-quote-box {
+  position: absolute;
+  bottom: var(--space-4);
+  left: var(--space-4);
+  right: var(--space-4);
+  background: rgba(253, 252, 247, 0.92);
+  backdrop-filter: blur(12px);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-orange);
+}
+
+.founder-quote-text {
+  font-family: var(--font-secondary);
+  font-size: 1.05rem;
+  color: var(--color-text-dark);
+  font-style: italic;
+}
+
+.founder-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.founder-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+  color: var(--color-text-dark);
+  line-height: 1.1;
+}
+
+.founder-lead {
+  font-family: var(--font-secondary);
+  font-size: 1.25rem;
+  color: var(--color-berry);
+  line-height: 1.5;
+}
+
+.founder-p {
+  font-size: 0.975rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.founder-signature {
+  margin-top: var(--space-2);
+  display: flex;
+  flex-direction: column;
+}
+
+.founder-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-text-dark);
+}
+
+.founder-role {
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  color: var(--color-orange);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   8. TESTIMONIALS SECTION
+   -------------------------------------------------------------------------- */
+.testimonials-section {
+  background-color: var(--color-cream);
+}
+
+.testimonial-carousel {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.testimonial-track {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  min-height: 280px;
+}
+
+.testimonial-card {
+  min-width: 100%;
+  background: var(--color-cream-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-medium);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity var(--transition-smooth), transform var(--transition-smooth);
+  pointer-events: none;
+}
+
+.testimonial-card.active {
+  opacity: 1;
+  position: relative;
+  pointer-events: auto;
+}
+
+.testimonial-stars {
+  color: var(--color-orange);
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+}
+
+.testimonial-text {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  color: var(--color-text-dark);
+  line-height: 1.55;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+.author-img {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-orange);
+}
+
+.author-info h4 {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.author-info p {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.carousel-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  color: var(--color-berry);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all var(--transition-fast);
+}
+
+.carousel-btn:hover {
+  background: var(--color-berry);
+  color: var(--color-white);
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-border);
+  transition: all var(--transition-fast);
+}
+
+.dot.active {
+  background: var(--color-orange);
+  width: 24px;
+  border-radius: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   9. RECOGNITION & COMMUNITY (Editorial Press Grid)
+   -------------------------------------------------------------------------- */
+.community-section {
+  background-color: var(--color-cream-light);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.press-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .press-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .press-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+.press-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  padding: var(--space-6) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  text-align: center;
+  transition: all var(--transition-smooth);
+}
+
+.press-card:hover {
+  border-color: var(--color-orange);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-subtle);
+}
+
+.press-logo {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--color-berry);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.press-quote {
+  font-family: var(--font-secondary);
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  line-height: 1.45;
+}
+
+/* --------------------------------------------------------------------------
+   10. FAQ SECTION
+   -------------------------------------------------------------------------- */
+.faq-section {
+  background-color: var(--color-cream);
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.faq-item {
+  background: var(--color-cream-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--transition-fast);
+}
+
+.faq-item:hover {
+  border-color: var(--color-berry);
+}
+
+.faq-header {
+  width: 100%;
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  background: none;
+}
+
+.faq-question {
+  font-family: var(--font-secondary);
+  font-size: 1.25rem;
+  color: var(--color-text-dark);
+}
+
+.faq-icon {
+  font-size: 1.4rem;
+  color: var(--color-berry);
+  transition: transform var(--transition-fast);
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-smooth), padding var(--transition-smooth);
+  padding: 0 var(--space-5);
+}
+
+.faq-item.active .faq-body {
+  padding: 0 var(--space-5) var(--space-5) var(--space-5);
+  max-height: 400px;
+}
+
+.faq-content {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  border-top: 1px dashed var(--color-border);
+  padding-top: var(--space-3);
+}
+
+/* --------------------------------------------------------------------------
+   11. FINAL CTA BANNER (Using Product Photos/Thank you Imagery.jpeg)
+   -------------------------------------------------------------------------- */
+.final-cta {
+  position: relative;
+  padding: var(--space-16) 0;
+  overflow: hidden;
+  background-color: var(--color-berry-dark);
+}
+
+.final-cta-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.final-cta-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.6) contrast(1.1);
+}
+
+.final-cta-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(123, 50, 59, 0.65) 0%, rgba(44, 20, 24, 0.88) 100%);
+  z-index: 2;
+}
+
+.final-cta-container {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--color-white);
+}
+
+.final-cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  color: var(--color-cream-light);
+  line-height: 1.05;
+  margin-bottom: var(--space-3);
+}
+
+.final-cta-sub {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+  color: var(--color-cream);
+  margin-bottom: var(--space-6);
+  line-height: 1.5;
+}
+
+.final-cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   12. FOOTER (Pecunia Banner & Editorial Grid Inspired)
+   -------------------------------------------------------------------------- */
+.footer {
+  background-color: var(--color-cream);
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+
+/* Newsletter Card (Inspired by snippet) */
+.footer-newsletter-card {
+  background-color: var(--color-orange);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8) var(--space-6);
+  color: var(--color-white);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  align-items: center;
+  margin-bottom: var(--space-12);
+  box-shadow: 0 16px 40px var(--color-orange-glow);
+}
+
+@media (min-width: 992px) {
+  .footer-newsletter-card {
+    grid-template-columns: 1.2fr 0.8fr;
+    padding: var(--space-10) var(--space-8);
+  }
+}
+
+.newsletter-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  margin-bottom: var(--space-2);
+}
+
+.newsletter-sub {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.input-group {
+  display: flex;
+  background: var(--color-cream);
+  border-radius: 0px !important;
+  padding: 4px;
+}
+
+.input-group input {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 12px 20px;
+  color: var(--color-text-dark);
+  font-size: 0.9375rem;
+}
+
+.input-group input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.input-group .btn-subscribe {
+  background-color: var(--color-berry);
+  color: var(--color-white);
+  border-radius: 0px !important;
+  padding: 12px 28px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  transition: background-color var(--transition-fast);
+}
+
+.input-group .btn-subscribe:hover {
+  background-color: var(--color-berry-dark);
+}
+
+/* Mobile Responsiveness Overrides for Hero Section & Buttons */
+@media (max-width: 768px) {
+  .hero-meadowell {
+    min-height: calc(100vh - 60px);
+    padding-top: calc(var(--header-height) + var(--space-4));
+    padding-bottom: var(--space-8);
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-meadowell-bg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-meadowell-bg img {
+    object-position: 70% center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-meadowell-container {
+    justify-content: center;
+    padding: 0 var(--space-4);
+    width: 100%;
+  }
+
+  .hero-meadowell-content-right {
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+    background: rgba(44, 20, 24, 0.4);
+    backdrop-filter: blur(5px);
+    padding: var(--space-6) var(--space-4);
+    border: 1px solid rgba(253, 252, 247, 0.2);
+  }
+
+  .hero-headline-cream {
+    font-size: clamp(2.2rem, 7.5vw, 3.2rem);
+    text-align: center;
+    text-shadow: none !important;
+  }
+
+  .hero-subtext-berry {
+    font-size: clamp(1.05rem, 3.8vw, 1.25rem);
+    color: var(--color-cream-light);
+    text-align: center;
+    text-shadow: none !important;
+  }
+}
+
+/* Footer Main Grid */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer-logo img, .footer-logo svg {
+  height: 54px;
+  width: auto;
+}
+
+.footer-mission {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.footer-heading {
+  font-family: var(--font-secondary);
+  font-size: 1.15rem;
+  color: var(--color-berry);
+  margin-bottom: var(--space-3);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.footer-links a {
+  font-size: 0.9rem;
+  color: var(--color-text-dark);
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--color-orange);
+}
+
+.footer-bottom {
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: center;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ACCESSIBILITY & REDUCED MOTION (User Global Rule)
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
