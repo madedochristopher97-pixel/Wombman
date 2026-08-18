@@ -847,7 +847,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   MEADOWELL SECTION 3: "Why Work With Us" / Sustained Healing
+   MEADOWELL SECTION 3: "About WOMB-man" / Brand Philosophy
    -------------------------------------------------------------------------- */
 .section-why-us {
   background-color: var(--color-cream-dark);
@@ -860,11 +860,12 @@ img {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-8);
+  align-items: start;
 }
 
 @media (min-width: 992px) {
   .why-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.15fr 0.85fr;
     gap: var(--space-12);
   }
 }
@@ -873,7 +874,6 @@ img {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  max-width: 480px;
 }
 
 .why-eyebrow {
@@ -892,41 +892,110 @@ img {
   line-height: 1.15;
 }
 
+.why-lead {
+  font-family: var(--font-secondary);
+  font-size: 1.2rem;
+  color: var(--color-berry);
+  line-height: 1.5;
+}
+
 .why-desc {
   font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.why-quote-card {
+  background: var(--color-white);
+  border-left: 4px solid var(--color-orange);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-subtle);
+  margin: var(--space-2) 0;
+}
+
+.why-quote-text {
+  font-family: var(--font-secondary);
+  font-size: 1.05rem;
+  color: var(--color-text-dark);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.about-tagline-badge {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  margin-top: var(--space-2);
+  box-shadow: var(--shadow-subtle);
+  width: fit-content;
+}
+
+.tagline-rose {
+  font-size: 1.25rem;
+}
+
+.tagline-text {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-berry);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.tagline-sub {
+  font-family: var(--font-secondary);
   font-size: 0.95rem;
   color: var(--color-text-muted);
-  line-height: 1.65;
 }
 
 .why-right {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-4);
 }
 
 .why-feature-item {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+  background: var(--color-cream-light);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--transition-smooth);
+}
+
+.why-feature-item:hover {
+  transform: translateY(-4px);
+  background: var(--color-white);
+  border-color: var(--color-orange);
+  box-shadow: var(--shadow-medium);
 }
 
 .why-feature-icon {
-  font-size: 1.6rem;
-  color: var(--color-berry);
+  font-size: 1.75rem;
+  line-height: 1;
 }
 
 .why-feature-title {
   font-family: var(--font-secondary);
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   color: var(--color-text-dark);
 }
 
 .why-feature-text {
   font-family: var(--font-body);
-  font-size: 0.925rem;
+  font-size: 0.95rem;
   color: var(--color-text-muted);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 
@@ -1477,7 +1546,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   7. MEET THE FOUNDER SECTION
+   7. THE FOUNDER STORY SECTION
    -------------------------------------------------------------------------- */
 .founder-section {
   background-color: var(--color-cream-light);
@@ -1489,7 +1558,7 @@ img {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-8);
-  align-items: center;
+  align-items: start;
 }
 
 @media (min-width: 992px) {
@@ -1506,10 +1575,18 @@ img {
   box-shadow: var(--shadow-hover);
 }
 
+@media (min-width: 992px) {
+  .founder-img-frame {
+    position: sticky;
+    top: 100px;
+  }
+}
+
 .founder-img {
   width: 100%;
   max-height: 600px;
   object-fit: cover;
+  display: block;
 }
 
 .founder-quote-box {
@@ -1517,11 +1594,12 @@ img {
   bottom: var(--space-4);
   left: var(--space-4);
   right: var(--space-4);
-  background: rgba(253, 252, 247, 0.92);
+  background: rgba(253, 252, 247, 0.95);
   backdrop-filter: blur(12px);
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-md);
   border-left: 4px solid var(--color-orange);
+  box-shadow: var(--shadow-subtle);
 }
 
 .founder-quote-text {
@@ -1529,19 +1607,20 @@ img {
   font-size: 1.05rem;
   color: var(--color-text-dark);
   font-style: italic;
+  line-height: 1.5;
 }
 
 .founder-content {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-4);
 }
 
 .founder-title {
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 4.5vw, 3.5rem);
   color: var(--color-text-dark);
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 .founder-lead {
@@ -1552,15 +1631,23 @@ img {
 }
 
 .founder-p {
-  font-size: 0.975rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
-  line-height: 1.7;
+  line-height: 1.75;
+}
+
+.founder-p strong {
+  color: var(--color-berry);
+  font-weight: 600;
 }
 
 .founder-signature {
-  margin-top: var(--space-2);
+  margin-top: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
+  gap: 4px;
 }
 
 .founder-name {
