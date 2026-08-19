@@ -389,31 +389,57 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   1. NAVIGATION HEADER
+   1. NAVIGATION HEADER & ANNOUNCEMENT BAR
    -------------------------------------------------------------------------- */
+.top-announcement-bar {
+  background-color: var(--color-berry-dark);
+  color: var(--color-cream-light);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  letter-spacing: 0.03em;
+  padding: 6px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.announcement-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.announcement-sep {
+  opacity: 0.5;
+}
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--header-height);
   z-index: 1000;
   transition: all var(--transition-smooth);
 }
 
 .header.scrolled {
-  background-color: rgba(239, 239, 215, 0.92);
+  background-color: rgba(239, 239, 215, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 4px 20px rgba(44, 20, 24, 0.06);
-  height: 76px;
+  box-shadow: 0 4px 20px rgba(44, 20, 24, 0.08);
 }
 
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
+  height: 72px;
+  transition: height var(--transition-smooth);
+}
+
+.header.scrolled .header-container {
+  height: 62px;
 }
 
 /* Logo: ICON ONLY (No text wordmark) */
@@ -1305,6 +1331,23 @@ img {
   color: var(--color-text-muted);
 }
 
+.product-location-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  background-color: rgba(224, 107, 74, 0.12);
+  border: 1px solid rgba(224, 107, 74, 0.35);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-3);
+  font-size: 0.84rem;
+  color: var(--color-berry-dark);
+}
+
+.product-location-badge .loc-pin {
+  font-size: 0.95rem;
+}
+
 .product-description {
   font-size: 1rem;
   color: var(--color-text-dark);
@@ -1377,6 +1420,49 @@ img {
 
 .tab-pane.active {
   display: block;
+}
+
+.step-item {
+  margin-bottom: var(--space-2);
+  line-height: 1.6;
+}
+
+.steaming-pdf-download-wrap {
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px dashed var(--color-border);
+}
+
+.btn-download-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: var(--color-white);
+  color: var(--color-berry);
+  border: 1.5px solid var(--color-berry);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-subtle);
+}
+
+.btn-download-pdf:hover {
+  background-color: var(--color-berry);
+  color: var(--color-cream-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-download-pdf svg {
+  transition: transform var(--transition-fast);
+}
+
+.btn-download-pdf:hover svg {
+  transform: translateY(2px);
 }
 
 /* Purchase Actions */
@@ -2234,6 +2320,61 @@ img {
 
 .footer-links a:hover {
   color: var(--color-orange);
+}
+
+.footer-connect-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-location-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: var(--space-2);
+}
+
+.footer-social-icons {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  color: var(--color-berry);
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--transition-fast);
+}
+
+.social-icon-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+
+.social-icon-btn.whatsapp:hover {
+  background: #25D366;
+  border-color: #25D366;
+  color: #FFFFFF;
+}
+
+.social-icon-btn.instagram:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  border-color: #d6249f;
+  color: #FFFFFF;
+}
+
+.social-icon-btn.email:hover {
+  background: var(--color-orange);
+  border-color: var(--color-orange);
+  color: #FFFFFF;
 }
 
 .footer-bottom {

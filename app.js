@@ -151,8 +151,151 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const input = newsletterForm.querySelector('input[type="email"]');
       if (input && input.value) {
-        alert(`Thank you for subscribing to Wombman Botanical Journal with ${input.value}!`);
+        alert(`Thank you for subscribing to WOMB-man Botanical Journal with ${input.value}!`);
         input.value = '';
+      }
+    });
+  }
+
+  // 8. Download Steaming Guide (PDF / Printable View)
+  const downloadGuideBtn = document.getElementById('download-guide-btn');
+  if (downloadGuideBtn) {
+    downloadGuideBtn.addEventListener('click', () => {
+      const printWindow = window.open('', '_blank');
+      const guideHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WOMB-man Sacred Steaming Guide (PDF)</title>
+  <style>
+    @page { size: A4; margin: 18mm; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #2C1418;
+      background: #FFFFFF;
+      line-height: 1.6;
+      padding: 24px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .guide-header {
+      text-align: center;
+      border-bottom: 2px solid #7B323B;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    .guide-logo {
+      font-size: 30px;
+      font-weight: 700;
+      color: #7B323B;
+      letter-spacing: 3px;
+      margin: 0;
+    }
+    .guide-tagline {
+      font-size: 14px;
+      color: #E06B4A;
+      margin: 6px 0 0 0;
+      font-style: italic;
+    }
+    .guide-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #7B323B;
+      border-bottom: 1px solid #EFEFD7;
+      padding-bottom: 6px;
+      margin-top: 24px;
+      margin-bottom: 14px;
+    }
+    .step-list {
+      padding-left: 20px;
+      margin: 0 0 16px 0;
+    }
+    .step-list li {
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+    .step-list strong {
+      color: #2C1418;
+    }
+    .info-card {
+      background: #FDFCF7;
+      border: 1px solid #EFEFD7;
+      border-left: 4px solid #E06B4A;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 18px 0;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .ingredients-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+    .guide-footer {
+      text-align: center;
+      margin-top: 36px;
+      padding-top: 16px;
+      border-top: 1px solid #EFEFD7;
+      font-size: 12px;
+      color: #7B323B;
+    }
+    @media print {
+      body { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="guide-header">
+    <h1 class="guide-logo">WOMB-MAN</h1>
+    <p class="guide-tagline">Release. Cleanse. Restore. 🌹</p>
+  </div>
+
+  <h2 class="guide-title">🌿 Sacred Steaming Ritual Guide</h2>
+  <ol class="step-list">
+    <li><strong>1. Boil Filtered Water:</strong> Bring 4–6 cups of clean filtered water to a gentle boil.</li>
+    <li><strong>2. Steep the Herbs:</strong> Add a <em>small handful</em> of WOMB-man Botanical Blend, cover with a lid, and steep for 10 minutes.</li>
+    <li><strong>3. Prepare Your Space:</strong> Place vessel securely beneath a perforated steam stool or seat. Check that steam is warm and comforting, never burning.</li>
+    <li><strong>4. Settle into the Ritual:</strong> Wrap a warm blanket around your waist to create a cozy tent. Relax and breathe deeply over the steam for 15–20 minutes.</li>
+    <li><strong>5. Rest &amp; Reconnect:</strong> Wrap yourself in warm clothing, hydrate with warm herbal tea, and rest peacefully for 15 minutes.</li>
+  </ol>
+
+  <div class="info-card">
+    <strong>✨ Best Timing &amp; Intentional Care:</strong><br>
+    • Ideal 3–5 days prior to cycle onset, or after menstruation concludes.<br>
+    • <em>Precaution:</em> Avoid steaming during active menstruation or pregnancy.
+  </div>
+
+  <h2 class="guide-title">🌺 Handcrafted Botanical Ingredients</h2>
+  <div class="ingredients-grid">
+    <div>• <strong>Rosemary:</strong> Pelvic circulation &amp; warmth</div>
+    <div>• <strong>Hibiscus:</strong> Antioxidant vitality</div>
+    <div>• <strong>Rose Petals:</strong> Emotional softening &amp; balance</div>
+    <div>• <strong>Chamomile:</strong> Nervous system calming</div>
+    <div>• <strong>Bay Leaves:</strong> Clearing &amp; botanical ease</div>
+  </div>
+
+  <div class="guide-footer">
+    <p><strong>WOMB-man Kenya</strong> • Branches in Nairobi &amp; Kilifi<br>
+    WhatsApp: 0769 161 878 • Instagram: @_.wombman • hello@wombman.com</p>
+  </div>
+
+  <script>
+    window.onload = function() {
+      window.print();
+    };
+  <\/script>
+</body>
+</html>`;
+
+      if (printWindow) {
+        printWindow.document.open();
+        printWindow.document.write(guideHtml);
+        printWindow.document.close();
+      } else {
+        window.print();
       }
     });
   }
