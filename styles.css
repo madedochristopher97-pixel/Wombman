@@ -761,6 +761,7 @@ img {
 .ingredient-row {
   display: grid;
   grid-template-columns: 1fr;
+  align-items: stretch;
   background: var(--color-white);
   border-radius: var(--radius-xl);
   overflow: hidden; /* Flush edge-to-edge image clipped to rounded card corners */
@@ -776,9 +777,10 @@ img {
 }
 
 .ingredient-img-wrapper {
+  position: relative;
   width: 100%;
   height: 100%;
-  min-height: 300px;
+  min-height: 100%;
   border-radius: 0 !important;
   overflow: hidden;
 }
@@ -807,6 +809,12 @@ img {
   .ingredient-row {
     grid-template-columns: 1fr 1fr; /* 50% image, 50% text */
     min-height: 380px;
+    align-items: stretch;
+  }
+
+  .ingredient-img-wrapper {
+    height: 100%;
+    min-height: 100%;
   }
 
   .ingredient-content {
@@ -839,8 +847,9 @@ img {
   .ingredient-row .ingredient-img-wrapper,
   .ingredient-row.reverse .ingredient-img-wrapper {
     order: 1 !important;
-    height: 260px;
-    min-height: 260px;
+    height: 280px;
+    min-height: 280px;
+    width: 100%;
   }
 
   .ingredient-row .ingredient-content,
@@ -1474,100 +1483,7 @@ img {
   margin-top: var(--space-2);
 }
 
-/* --------------------------------------------------------------------------
-   5. INGREDIENT STORY SECTION
-   -------------------------------------------------------------------------- */
-.ingredient-story {
-  background-color: var(--color-cream-light);
-  position: relative;
-}
 
-.ingredients-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-4);
-}
-
-@media (min-width: 600px) {
-  .ingredients-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 992px) {
-  .ingredients-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 1200px) {
-  .ingredients-grid {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-
-.ingredient-card {
-  background: var(--color-white);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid var(--color-border-light);
-  box-shadow: var(--shadow-subtle);
-  transition: all var(--transition-smooth);
-  display: flex;
-  flex-direction: column;
-}
-
-.ingredient-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-hover);
-  border-color: var(--color-orange);
-}
-
-.ingredient-img-wrapper {
-  position: relative;
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
-}
-
-.ingredient-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition-slow);
-}
-
-.ingredient-card:hover .ingredient-img {
-  transform: scale(1.08);
-}
-
-.ingredient-content {
-  padding: var(--space-3);
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.ingredient-title {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  color: var(--color-text-dark);
-  margin-bottom: var(--space-1);
-}
-
-.ingredient-botanical {
-  font-family: var(--font-secondary);
-  font-size: 0.9rem;
-  color: var(--color-berry);
-  font-style: italic;
-  margin-bottom: var(--space-2);
-}
-
-.ingredient-desc {
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-  line-height: 1.55;
-}
 
 /* --------------------------------------------------------------------------
    6. WHY WOMEN LOVE WOMBMAN (BENEFITS)
