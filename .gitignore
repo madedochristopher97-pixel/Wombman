@@ -1,0 +1,4 @@
+*.af~lock~
+*~
+.DS_Store
+Thumbs.db

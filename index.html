@@ -237,129 +237,252 @@
     </section>
 
     <!-- ==========================================================================
-         4. PRODUCT SPOTLIGHT SECTION
+         4. PRODUCT SPOTLIGHT SECTION (Dual Product Offerings)
          ========================================================================== -->
     <section class="product-spotlight section-padding" id="product">
       <div class="container">
-        <div class="spotlight-grid">
-          
-          <!-- Interactive Gallery Showcase -->
-          <div class="product-gallery">
-            <div class="main-image-container">
-              <img id="main-product-img" src="assets/Product Photos/Vertical Product Shot.jpeg" alt="Wombman Botanical Herbal Steam Jar" class="main-product-img">
-            </div>
-            
-            <div class="thumbnail-row">
-              <button class="thumb-btn active" data-img="assets/Product Photos/Vertical Product Shot.jpeg" aria-label="View vertical product shot">
-                <img src="assets/Product Photos/Vertical Product Shot.jpeg" alt="Product thumbnail 1">
-              </button>
-              <button class="thumb-btn" data-img="assets/Product Photos/Scenic Product 2.jpeg" aria-label="View scenic product shot">
-                <img src="assets/Product Photos/Scenic Product 2.jpeg" alt="Product thumbnail 2">
-              </button>
-              <button class="thumb-btn" data-img="assets/Product Photos/Thank you Imagery.jpeg" aria-label="View thank you imagery">
-                <img src="assets/Product Photos/Thank you Imagery.jpeg" alt="Product thumbnail 3">
-              </button>
-              <button class="thumb-btn" data-img="assets/Product Photos/Product Hold.jpeg" aria-label="View product held in hand">
-                <img src="assets/Product Photos/Product Hold.jpeg" alt="Product thumbnail 4">
-              </button>
-              <button class="thumb-btn" data-img="assets/Product Photos/Scenic product Imagery.jpeg" aria-label="View scenic imagery">
-                <img src="assets/Product Photos/Scenic product Imagery.jpeg" alt="Product thumbnail 5">
-              </button>
-            </div>
+
+        <!-- Product Collection Switcher -->
+        <div class="product-collection-header">
+          <div class="eyebrow eyebrow-orange">Our Botanical Offerings</div>
+          <h2 class="section-title font-display">Sacred Herbal &amp; Mineral Care</h2>
+          <p class="section-subtitle font-secondary">
+            Two intentional formulations crafted to soothe your pelvic center and restore whole-body ease.
+          </p>
+
+          <div class="product-toggle-bar">
+            <button class="product-toggle-btn active" data-product="product-steam" aria-label="View Sacred Botanical Steam Blend">
+              <span class="toggle-icon">🌸</span>
+              <span class="toggle-name">Sacred Steam Blend</span>
+            </button>
+            <button class="product-toggle-btn" data-product="product-bath" aria-label="View Botanical Mineral Bath Salt">
+              <span class="toggle-icon">🛁</span>
+              <span class="toggle-name">Botanical Bath Salt</span>
+            </button>
           </div>
+        </div>
 
-          <!-- Product Details & Purchase Form -->
-          <div class="product-details">
-            <div class="eyebrow">
-              Signature Product
-            </div>
+        <!-- PRODUCT 1: Sacred Botanical Steam Blend -->
+        <div class="product-panel active" id="product-steam">
+          <div class="spotlight-grid">
             
-            <div class="rating-badge">
-              <span class="stars">★★★★★</span>
-              <span><strong>5.0</strong> (420+ Verified Reviews)</span>
+            <!-- Interactive Gallery Showcase -->
+            <div class="product-gallery">
+              <div class="main-image-container">
+                <img id="main-steam-img" src="assets/Product Photos/Vertical Product Shot.jpeg" alt="Wombman Sacred Botanical Herbal Steam Blend" class="main-product-img">
+              </div>
+              
+              <div class="thumbnail-row">
+                <button class="thumb-btn active" data-target="main-steam-img" data-img="assets/Product Photos/Vertical Product Shot.jpeg" aria-label="View vertical product shot">
+                  <img src="assets/Product Photos/Vertical Product Shot.jpeg" alt="Steam blend thumbnail 1">
+                </button>
+                <button class="thumb-btn" data-target="main-steam-img" data-img="assets/Product Photos/Scenic Product 2.jpeg" aria-label="View scenic product shot">
+                  <img src="assets/Product Photos/Scenic Product 2.jpeg" alt="Steam blend thumbnail 2">
+                </button>
+                <button class="thumb-btn" data-target="main-steam-img" data-img="assets/Product Photos/Thank you Imagery.jpeg" aria-label="View thank you imagery">
+                  <img src="assets/Product Photos/Thank you Imagery.jpeg" alt="Steam blend thumbnail 3">
+                </button>
+                <button class="thumb-btn" data-target="main-steam-img" data-img="assets/Product Photos/Product Hold.jpeg" aria-label="View product held in hand">
+                  <img src="assets/Product Photos/Product Hold.jpeg" alt="Steam blend thumbnail 4">
+                </button>
+                <button class="thumb-btn" data-target="main-steam-img" data-img="assets/Product Photos/Scenic product Imagery.jpeg" aria-label="View scenic imagery">
+                  <img src="assets/Product Photos/Scenic product Imagery.jpeg" alt="Steam blend thumbnail 5">
+                </button>
+              </div>
             </div>
 
-            <h2 class="product-main-title font-display">
-              Sacred Botanical Steam Blend
-            </h2>
-
-            <p class="product-sub font-secondary">
-              Artisanal Herbal Infusion for Pelvic Warmth & Cyclical Ease
-            </p>
-
-            <div class="price-box">
-              <span class="current-price font-display">KSh 850 /=</span>
-              <span class="price-note">(excl. delivery fee) • 100g Jar (8–12 Steams)</span>
-            </div>
-
-            <!-- Branch Locations Badge -->
-            <div class="product-location-badge">
-              <span class="loc-pin">📍</span>
-              <span class="loc-text"><strong>Branches: Nairobi &amp; Kilifi, Kenya</strong> • Pickup &amp; Express Delivery</span>
-            </div>
-
-            <p class="product-description font-body">
-              Formulated with organic Rosemary, Hibiscus, Rose Petals, Chamomile, and Bay Leaves. WOMB-man gently circulates soothing herbal steam heat to soften pelvic tissues, reduce monthly discomfort, and invite profound relaxation into your body.
-            </p>
-
-            <!-- Key Benefits Checklist -->
-            <ul class="benefits-list font-body">
-              <li>Relieves pelvic tension and supports natural cyclical flow</li>
-              <li>Nurtures deep nervous system relaxation and stress relief</li>
-              <li>Infused with anti-inflammatory, antioxidant-rich botanicals</li>
-              <li>100% natural, cruelty-free, and pure botanical formulation</li>
-            </ul>
-
-            <!-- Interactive Tabbed Preparation Guide -->
-            <div class="ritual-tabs">
-              <div class="tab-buttons">
-                <button class="tab-btn active" data-tab="tab-prepare">How to Steam</button>
-                <button class="tab-btn" data-tab="tab-benefits">Benefits</button>
-                <button class="tab-btn" data-tab="tab-timing">Best Timing</button>
+            <!-- Product Details & Purchase Form -->
+            <div class="product-details">
+              <div class="eyebrow">Signature Herbal Ritual</div>
+              
+              <div class="rating-badge">
+                <span class="stars">★★★★★</span>
+                <span><strong>5.0</strong> (420+ Verified Reviews)</span>
               </div>
 
-              <div class="tab-pane active" id="tab-prepare">
-                <p class="step-item"><strong>1.</strong> Bring 4–6 cups of filtered water to a gentle boil.</p>
-                <p class="step-item"><strong>2.</strong> Add a small handful of WOMB-man blend, cover, and steep for 10 minutes.</p>
-                <p class="step-item"><strong>3.</strong> Place vessel securely under a perforated steam stool or chair.</p>
-                <p class="step-item"><strong>4.</strong> Wrap a warm blanket around your waist and relax over the gentle steam for 15–20 minutes.</p>
-                
-                <!-- PDF Download Button -->
-                <div class="steaming-pdf-download-wrap">
-                  <button type="button" class="btn-download-pdf" id="download-guide-btn" aria-label="Download Steaming Guide as PDF">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                      <polyline points="7 10 12 15 17 10"></polyline>
-                      <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                    <span>Download Steaming Guide (PDF)</span>
-                  </button>
+              <h3 class="product-main-title font-display">
+                Sacred Botanical Steam Blend
+              </h3>
+
+              <p class="product-sub font-secondary">
+                Artisanal Herbal Infusion for Pelvic Warmth &amp; Cyclical Ease
+              </p>
+
+              <div class="price-box">
+                <span class="current-price font-display">KSh 850 /=</span>
+                <span class="price-note">(excl. delivery fee) • 100g Jar (8–12 Steams)</span>
+              </div>
+
+              <!-- Branch Locations Badge -->
+              <div class="product-location-badge">
+                <span class="loc-pin">📍</span>
+                <span class="loc-text"><strong>Branches: Nairobi &amp; Kilifi, Kenya</strong> • Pickup &amp; Express Delivery</span>
+              </div>
+
+              <p class="product-description font-body">
+                Formulated with organic Rosemary, Hibiscus, Rose Petals, Chamomile, and Bay Leaves. WOMB-man gently circulates soothing herbal steam heat to soften pelvic tissues, reduce monthly discomfort, and invite profound relaxation into your body.
+              </p>
+
+              <!-- Key Benefits Checklist -->
+              <ul class="benefits-list font-body">
+                <li>Relieves pelvic tension and supports natural cyclical flow</li>
+                <li>Nurtures deep nervous system relaxation and stress relief</li>
+                <li>Infused with anti-inflammatory, antioxidant-rich botanicals</li>
+                <li>100% natural, cruelty-free, and pure botanical formulation</li>
+              </ul>
+
+              <!-- Interactive Tabbed Preparation Guide -->
+              <div class="ritual-tabs">
+                <div class="tab-buttons">
+                  <button class="tab-btn active" data-tab="tab-steam-prepare">How to Steam</button>
+                  <button class="tab-btn" data-tab="tab-steam-benefits">Benefits</button>
+                  <button class="tab-btn" data-tab="tab-steam-timing">Best Timing</button>
+                </div>
+
+                <div class="tab-pane active" id="tab-steam-prepare">
+                  <p class="step-item"><strong>1.</strong> Bring 4–6 cups of filtered water to a gentle boil.</p>
+                  <p class="step-item"><strong>2.</strong> Add a small handful of WOMB-man blend, cover, and steep for 10 minutes.</p>
+                  <p class="step-item"><strong>3.</strong> Place vessel securely under a perforated steam stool or chair.</p>
+                  <p class="step-item"><strong>4.</strong> Wrap a warm blanket around your waist and relax over the gentle steam for 15–20 minutes.</p>
+                  
+                  <!-- PDF Download Button -->
+                  <div class="steaming-pdf-download-wrap">
+                    <button type="button" class="btn-download-pdf" id="download-guide-btn" aria-label="Download Steaming Guide as PDF">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                      </svg>
+                      <span>Download Steaming Guide (PDF)</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="tab-pane" id="tab-steam-benefits">
+                  Steam warmth opens skin pores, increases local circulation, and delivers volatile essential oils directly to pelvic tissues, releasing muscular tightness and inviting peaceful stillness.
+                </div>
+
+                <div class="tab-pane" id="tab-steam-timing">
+                  Ideal for 3–5 days prior to your cycle start, after menstruation finishes, or whenever you seek intentional self-care and grounding. Avoid steaming during active menstrual bleeding or pregnancy.
                 </div>
               </div>
 
-              <div class="tab-pane" id="tab-benefits">
-                Steam warmth opens skin pores, increases local circulation, and delivers volatile essential oils directly to pelvic tissues, releasing muscular tightness and inviting peaceful stillness.
+              <!-- Direct Order Action -->
+              <div class="product-actions">
+                <a href="https://wa.me/254769161878?text=Hello%20Wombman%2C%20I%20would%20like%20to%20order%20the%20Sacred%20Botanical%20Steam%20Blend%20for%20KSh%20850." 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn btn-primary"
+                   style="flex: 1; min-width: 260px;">
+                  Order Steam Blend via WhatsApp — KSh 850 /=
+                </a>
               </div>
 
-              <div class="tab-pane" id="tab-timing">
-                Ideal for 3–5 days prior to your cycle start, after menstruation finishes, or whenever you seek intentional self-care and grounding. Avoid steaming during active menstrual bleeding or pregnancy.
-              </div>
-            </div>
-
-            <!-- Direct Order Action -->
-            <div class="product-actions">
-              <a href="https://wa.me/254769161878?text=Hello%20Wombman%2C%20I%20would%20like%20to%20order%20the%20Sacred%20Botanical%20Steam%20Blend%20for%20KSh%20850." 
-                 target="_blank" 
-                 rel="noopener noreferrer" 
-                 class="btn btn-primary"
-                 style="flex: 1; min-width: 260px;">
-                Order via WhatsApp — KSh 850 /=
-              </a>
             </div>
 
           </div>
-
         </div>
+
+        <!-- PRODUCT 2: Botanical Mineral Bath Salt -->
+        <div class="product-panel" id="product-bath">
+          <div class="spotlight-grid">
+            
+            <!-- Interactive Gallery Showcase -->
+            <div class="product-gallery">
+              <div class="main-image-container">
+                <img id="main-bath-img" src="assets/Product Photos/Salt Bath NEW.png" alt="Wombman Botanical Mineral Bath Salt" class="main-product-img">
+              </div>
+              
+              <div class="thumbnail-row">
+                <button class="thumb-btn active" data-target="main-bath-img" data-img="assets/Product Photos/Salt Bath NEW.png" aria-label="View Salt Bath New Photo">
+                  <img src="assets/Product Photos/Salt Bath NEW.png" alt="Salt Bath Photo 1">
+                </button>
+                <button class="thumb-btn" data-target="main-bath-img" data-img="assets/Product Photos/Salt Bath 2.jpeg" aria-label="View Salt Bath 2 Photo">
+                  <img src="assets/Product Photos/Salt Bath 2.jpeg" alt="Salt Bath Photo 2">
+                </button>
+              </div>
+            </div>
+
+            <!-- Product Details & Purchase Form -->
+            <div class="product-details">
+              <div class="eyebrow">Restorative Mineral Soak</div>
+              
+              <div class="rating-badge">
+                <span class="stars">★★★★★</span>
+                <span><strong>5.0</strong> (New Release • Verified Community)</span>
+              </div>
+
+              <h3 class="product-main-title font-display">
+                Botanical Mineral Bath Salt
+              </h3>
+
+              <p class="product-sub font-secondary">
+                Pure Mineral Crystals &amp; Restorative Botanical Infusion
+              </p>
+
+              <div class="price-box">
+                <span class="current-price font-display">KSh 850 /=</span>
+                <span class="price-note">(excl. delivery fee) • 250g Jar / Pouch (6–10 Soaks)</span>
+              </div>
+
+              <!-- Branch Locations Badge -->
+              <div class="product-location-badge">
+                <span class="loc-pin">📍</span>
+                <span class="loc-text"><strong>Branches: Nairobi &amp; Kilifi, Kenya</strong> • Pickup &amp; Express Delivery</span>
+              </div>
+
+              <p class="product-description font-body">
+                Crafted with pure therapeutic mineral salts, calming magnesium, and whole botanical flowers. Dissolves in warm bath water to soothe fatigued muscles, draw out physical tension, and deeply nourish your nervous system.
+              </p>
+
+              <!-- Key Benefits Checklist -->
+              <ul class="benefits-list font-body">
+                <li>Relaxes tight muscles and relieves full-body physical fatigue</li>
+                <li>Replenishes essential minerals and calms the nervous system</li>
+                <li>Gently softens skin and supports cellular detoxification</li>
+                <li>100% natural, cruelty-free, and chemical-free mineral blend</li>
+              </ul>
+
+              <!-- Interactive Tabbed Preparation Guide -->
+              <div class="ritual-tabs">
+                <div class="tab-buttons">
+                  <button class="tab-btn active" data-tab="tab-bath-prepare">How to Soak</button>
+                  <button class="tab-btn" data-tab="tab-bath-benefits">Benefits</button>
+                  <button class="tab-btn" data-tab="tab-bath-timing">Best Timing</button>
+                </div>
+
+                <div class="tab-pane active" id="tab-bath-prepare">
+                  <p class="step-item"><strong>1.</strong> Fill your tub or foot basin with warm, comforting water.</p>
+                  <p class="step-item"><strong>2.</strong> Add 3–4 tablespoons (or a generous handful) of WOMB-man Botanical Bath Salt.</p>
+                  <p class="step-item"><strong>3.</strong> Swirl the water gently until mineral crystals and aromatic botanicals dissolve.</p>
+                  <p class="step-item"><strong>4.</strong> Immerse yourself, breathe deeply, and soak undisturbed for 20–30 minutes.</p>
+                </div>
+
+                <div class="tab-pane" id="tab-bath-benefits">
+                  Transdermal mineral absorption delivers bioavailable magnesium directly through the skin, reducing muscular tightness, promoting cellular repair, and easing mental stress before deep sleep.
+                </div>
+
+                <div class="tab-pane" id="tab-bath-timing">
+                  Ideal as an evening restorative ritual, following high-stress days, after intense workouts, or during pre-menstrual tension to ground and soothe your entire body.
+                </div>
+              </div>
+
+              <!-- Direct Order Action -->
+              <div class="product-actions">
+                <a href="https://wa.me/254769161878?text=Hello%20Wombman%2C%20I%20would%20like%20to%20order%20the%20Botanical%20Mineral%20Bath%20Salt%20for%20KSh%20850." 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn btn-primary"
+                   style="flex: 1; min-width: 260px;">
+                  Order Bath Salt via WhatsApp — KSh 850 /=
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -455,67 +578,89 @@
     </section>
 
     <!-- ==========================================================================
-         6. WHY WOMEN LOVE WOMBMAN (BENEFITS)
+         6. WHY WOMEN LOVE WOMBMAN (Editorial Reconnection & Benefits)
          ========================================================================== -->
-    <section class="benefits-section section-padding">
+    <section class="benefits-editorial-section section-padding" id="why-wombman">
       <div class="container">
         
         <div class="section-header">
-          <div class="eyebrow">✦ The Wombman Difference</div>
-          <h2 class="section-title font-display">Why Women Love Wombman</h2>
+          <div class="eyebrow eyebrow-orange">✦ The WOMB-man Difference</div>
+          <h2 class="section-title font-display">Why Women Love WOMB-man</h2>
           <p class="section-subtitle font-secondary">
             More than a product — an invitation to return home to your body.
           </p>
         </div>
 
-        <div class="benefits-grid">
+        <div class="benefits-editorial-grid">
           
-          <div class="benefit-card">
-            <div class="benefit-number font-display">01</div>
-            <h3 class="benefit-title font-secondary">100% Organic & Wildcrafted</h3>
-            <p class="benefit-text font-body">
-              Every herb is ethically sourced from clean soils without pesticides, synthetic sprays, or irradiation.
-            </p>
+          <!-- Left Column: Visual Editorial Showcase with Model & Steam Shots -->
+          <div class="benefits-visual-col">
+            <div class="benefits-media-card">
+              <div class="benefits-main-image-wrap">
+                <img src="assets/Model Shots/Model shot 1.jfif" alt="Woman holding WOMB-man botanical steam blend with reverence" class="benefits-model-img">
+                <div class="benefits-steam-overlay">
+                  <img src="assets/Model Shots/Steam .png" alt="Aromatic herbal steam smoke" class="steam-ambient-img">
+                </div>
+              </div>
+              
+              <div class="benefits-floating-quote">
+                <span class="quote-symbol font-display">“</span>
+                <p class="quote-copy font-secondary">
+                  Healing begins when you listen to your body rather than fighting against it.
+                </p>
+              </div>
+
+              <div class="benefits-badge-pill">
+                <span>🌿 100% Wildcrafted</span>
+                <span class="pill-sep">•</span>
+                <span>Nairobi &amp; Kilifi</span>
+              </div>
+            </div>
           </div>
 
-          <div class="benefit-card">
-            <div class="benefit-number font-display">02</div>
-            <h3 class="benefit-title font-secondary">Sacred Self-Care Ritual</h3>
-            <p class="benefit-text font-body">
-              Transforms your bathroom into a tranquil sanctuary where you can pause, disconnect, and listen to your body.
-            </p>
-          </div>
+          <!-- Right Column: Concise, Direct-to-Reader Impact Reasons -->
+          <div class="benefits-content-col">
+            
+            <div class="benefit-row-item">
+              <div class="benefit-icon-badge font-display">01</div>
+              <div class="benefit-text-wrap">
+                <h3 class="benefit-point-title font-display">Gentle Root-Cause Relief</h3>
+                <p class="benefit-point-desc font-body">
+                  Instead of numbing symptoms, soothing botanical steam warmth penetrates deeply to soften pelvic muscles, ease cramping, and support your natural cyclical flow.
+                </p>
+              </div>
+            </div>
 
-          <div class="benefit-card">
-            <div class="benefit-number font-display">03</div>
-            <h3 class="benefit-title font-secondary">Nurturing Thermal Ease</h3>
-            <p class="benefit-text font-body">
-              The gentle moist heat increases capillary blood flow, encouraging natural muscular release and ease.
-            </p>
-          </div>
+            <div class="benefit-row-item">
+              <div class="benefit-icon-badge font-display">02</div>
+              <div class="benefit-text-wrap">
+                <h3 class="benefit-point-title font-display">100% Whole-Plant Medicine</h3>
+                <p class="benefit-point-desc font-body">
+                  Zero synthetic fragrances, fillers, artificial dyes, or chemical extracts. Only pure, earth-grown botanicals formulated in sacred harmony.
+                </p>
+              </div>
+            </div>
 
-          <div class="benefit-card">
-            <div class="benefit-number font-display">04</div>
-            <h3 class="benefit-title font-secondary">Handcrafted with Reverence</h3>
-            <p class="benefit-text font-body">
-              Blended by hand in small batches to preserve volatile essential oils and high botanical potency.
-            </p>
-          </div>
+            <div class="benefit-row-item">
+              <div class="benefit-icon-badge font-display">03</div>
+              <div class="benefit-text-wrap">
+                <h3 class="benefit-point-title font-display">A Sacred Space to Slow Down</h3>
+                <p class="benefit-point-desc font-body">
+                  Transforms your bathroom into a peaceful sanctuary. A gentle invitation to disconnect from daily noise, exhale, and honor yourself.
+                </p>
+              </div>
+            </div>
 
-          <div class="benefit-card">
-            <div class="benefit-number font-display">05</div>
-            <h3 class="benefit-title font-secondary">Cyclical Harmony</h3>
-            <p class="benefit-text font-body">
-              Supports your body through every phase of womanhood — from monthly cycles to post-natal reflection.
-            </p>
-          </div>
+            <div class="benefit-row-item">
+              <div class="benefit-icon-badge font-display">04</div>
+              <div class="benefit-text-wrap">
+                <h3 class="benefit-point-title font-display">Handcrafted in Small Batches</h3>
+                <p class="benefit-point-desc font-body">
+                  Lovingly blended in Kenya with high-potency botanicals, preserving their rich volatile oils and therapeutic vitality.
+                </p>
+              </div>
+            </div>
 
-          <div class="benefit-card">
-            <div class="benefit-number font-display">06</div>
-            <h3 class="benefit-title font-secondary">Pure & Chemical-Free</h3>
-            <p class="benefit-text font-body">
-              Zero synthetic fragrances, fillers, or artificial dyes. Only 100% unadulterated whole plant medicine.
-            </p>
           </div>
 
         </div>

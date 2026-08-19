@@ -34,33 +34,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Product Spotlight Thumbnail Gallery
-  const mainImg = document.getElementById('main-product-img');
-  const thumbBtns = document.querySelectorAll('.thumb-btn');
+  // 3. Product Collection Switcher (Steam Blend vs Bath Salt)
+  const productToggleBtns = document.querySelectorAll('.product-toggle-btn');
+  const productPanels = document.querySelectorAll('.product-panel');
 
-  if (mainImg && thumbBtns.length > 0) {
-    thumbBtns.forEach(btn => {
+  if (productToggleBtns.length > 0) {
+    productToggleBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        const newSrc = btn.getAttribute('data-img');
-        if (newSrc && mainImg.src !== newSrc) {
-          mainImg.style.opacity = '0.4';
-          setTimeout(() => {
-            mainImg.src = newSrc;
-            mainImg.style.opacity = '1';
-          }, 150);
+        const targetProductId = btn.getAttribute('data-product');
 
-          thumbBtns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
+        productToggleBtns.forEach(b => b.classList.remove('active'));
+        productPanels.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        const targetPanel = document.getElementById(targetProductId);
+        if (targetPanel) {
+          targetPanel.classList.add('active');
         }
       });
     });
   }
 
-  // 4. Ritual Tabs (Product Spotlight)
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const tabPanes = document.querySelectorAll('.tab-pane');
+  // 4. Product Galleries (Scoped per Product)
+  const galleries = document.querySelectorAll('.product-gallery');
+  galleries.forEach(gallery => {
+    const mainImg = gallery.querySelector('.main-product-img');
+    const thumbBtns = gallery.querySelectorAll('.thumb-btn');
 
-  if (tabBtns.length > 0) {
+    if (mainImg && thumbBtns.length > 0) {
+      thumbBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const newSrc = btn.getAttribute('data-img');
+          if (newSrc && mainImg.src !== newSrc) {
+            mainImg.style.opacity = '0.4';
+            setTimeout(() => {
+              mainImg.src = newSrc;
+              mainImg.style.opacity = '1';
+            }, 150);
+
+            thumbBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+          }
+        });
+      });
+    }
+  });
+
+  // 5. Ritual Tabs (Scoped per Product Component)
+  const tabContainers = document.querySelectorAll('.ritual-tabs');
+  tabContainers.forEach(container => {
+    const tabBtns = container.querySelectorAll('.tab-btn');
+    const tabPanes = container.querySelectorAll('.tab-pane');
+
     tabBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const targetTab = btn.getAttribute('data-tab');
@@ -69,13 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
         tabPanes.forEach(p => p.classList.remove('active'));
 
         btn.classList.add('active');
-        const activePane = document.getElementById(targetTab);
+        const activePane = container.querySelector(`#${targetTab}`);
         if (activePane) {
           activePane.classList.add('active');
         }
       });
     });
-  }
+  });
 
   // 5. Testimonial Carousel
   const testimonials = document.querySelectorAll('.testimonial-card');
