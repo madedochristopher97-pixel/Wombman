@@ -6,7 +6,7 @@
    - Warm Cream: #EFEFD7
    Custom Typography:
    - Display Headlines: Milk & Honey, Milk and Honey, Cormorant Garamond, Playfair Display, serif
-   - Secondary Headings: Miracle Regular, Miracle, Italiana, Cormorant Garamond, serif
+   - Secondary Headings: Mograph Font Regular, Mograph Font, Mogra Variable, Mogra, Plus Jakarta Sans, sans-serif
    - Body Text: Mograph Font Regular, Mograph Font, Mogra Variable, Mogra, Plus Jakarta Sans, sans-serif
    ========================================================================== */
 
@@ -47,7 +47,7 @@
 
   /* Typography Stacks (Custom Installed Fonts) */
   --font-display: "Milk & Honey", "Milk and Honey", "Cormorant Garamond", "Playfair Display", serif;
-  --font-secondary: "Miracle Regular", "Miracle", "Italiana", "Cormorant Garamond", serif;
+  --font-secondary: "Mograph Font", "Mograph", "Mograph Font Regular", "Mograph-Regular", system-ui, sans-serif;
   --font-body: "Mograph Font", "Mograph", "Mograph Font Regular", "Mograph-Regular", system-ui, sans-serif;
 
   /* Spacing Scale (8px Grid System) */
