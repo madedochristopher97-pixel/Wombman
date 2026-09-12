@@ -152,6 +152,75 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // 5b. Ingredients Carousel Navigation
+  const ingredientsCarousel = document.getElementById('ingredients-carousel');
+  const ingredientsTrack = document.getElementById('ingredients-track');
+  const ingredientCards = document.querySelectorAll('.ingredient-card');
+  const prevIngredientBtn = document.getElementById('prev-ingredient');
+  const nextIngredientBtn = document.getElementById('next-ingredient');
+  const ingredientDotsContainer = document.getElementById('ingredient-dots');
+
+  if (ingredientsCarousel && ingredientsTrack && ingredientCards.length > 0) {
+    let currentIdx = 0;
+
+    // Create pagination dots dynamically
+    ingredientCards.forEach((_, idx) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (idx === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => scrollToCard(idx));
+      if (ingredientDotsContainer) ingredientDotsContainer.appendChild(dot);
+    });
+
+    const ingredientDots = ingredientDotsContainer ? ingredientDotsContainer.querySelectorAll('.dot') : [];
+
+    function updateActiveDot(index) {
+      currentIdx = Math.max(0, Math.min(index, ingredientCards.length - 1));
+      ingredientDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIdx);
+      });
+      ingredientCards.forEach((card, i) => {
+        card.classList.toggle('active', i === currentIdx);
+      });
+    }
+
+    function scrollToCard(index) {
+      if (index < 0) index = ingredientCards.length - 1;
+      if (index >= ingredientCards.length) index = 0;
+
+      const targetCard = ingredientCards[index];
+      if (targetCard) {
+        const cardLeft = targetCard.offsetLeft - ingredientsTrack.offsetLeft;
+        ingredientsCarousel.scrollTo({
+          left: cardLeft,
+          behavior: 'smooth'
+        });
+        updateActiveDot(index);
+      }
+    }
+
+    if (nextIngredientBtn) {
+      nextIngredientBtn.addEventListener('click', () => scrollToCard(currentIdx + 1));
+    }
+    if (prevIngredientBtn) {
+      prevIngredientBtn.addEventListener('click', () => scrollToCard(currentIdx - 1));
+    }
+
+    // Sync active dot on manual scroll / swipe
+    let scrollTimeout;
+    ingredientsCarousel.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const scrollPos = ingredientsCarousel.scrollLeft;
+        const cardWidth = ingredientCards[0].offsetWidth + 20; // card width + gap
+        const newIndex = Math.round(scrollPos / cardWidth);
+        if (newIndex !== currentIdx && newIndex >= 0 && newIndex < ingredientCards.length) {
+          updateActiveDot(newIndex);
+        }
+      }, 50);
+    }, { passive: true });
+  }
+
   // 6. FAQ Accordion
   const faqHeaders = document.querySelectorAll('.faq-header');
 

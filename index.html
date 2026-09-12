@@ -487,7 +487,7 @@
     </section>
 
     <!-- ==========================================================================
-         5. INGREDIENT STORY SECTION (Alternating Editorial Rows)
+         5. INGREDIENT STORY SECTION (Interactive Botanical Carousel)
          ========================================================================== -->
     <section class="ingredient-story section-padding" id="ingredients">
       <div class="container">
@@ -500,77 +500,116 @@
           </p>
         </div>
 
-        <div class="ingredients-list">
+        <!-- Interactive Ingredients Carousel Wrapper -->
+        <div class="ingredients-carousel-wrapper">
           
-          <!-- 1. Rosemary (Text Left, Image Right) -->
-          <article class="ingredient-row">
-            <div class="ingredient-content">
-              <h3 class="ingredient-title font-display">Rosemary</h3>
-              <p class="ingredient-botanical font-secondary">Salvia rosmarinus</p>
-              <p class="ingredient-desc font-body">
-                Stimulates warmth and healthy pelvic circulation. Helps ease muscle spasms while invigorating the mind with clean botanical clarity.
-              </p>
-            </div>
-            <div class="ingredient-img-wrapper">
-              <img src="assets/Ingredients/Rosemary.jpg" alt="Organic Rosemary sprigs" class="ingredient-img">
-            </div>
-          </article>
+          <div class="ingredients-carousel" id="ingredients-carousel">
+            <div class="ingredients-track" id="ingredients-track">
+              
+              <!-- Card 1: Rosemary -->
+              <article class="ingredient-card">
+                <div class="ingredient-card-bg">
+                  <img src="assets/Ingredients/Rosemary.jpg" alt="Organic Rosemary sprigs" class="ingredient-card-img" loading="lazy">
+                </div>
+                <div class="ingredient-card-overlay">
+                  <div class="ingredient-card-content">
+                    <span class="ingredient-badge font-secondary">01 • Circulation</span>
+                    <h3 class="ingredient-title font-display">Rosemary</h3>
+                    <p class="ingredient-botanical font-secondary">Salvia rosmarinus</p>
+                    <div class="ingredient-desc-wrap">
+                      <p class="ingredient-desc font-body">
+                        Stimulates warmth and healthy pelvic circulation. Helps ease muscle spasms while invigorating the mind with clean botanical clarity.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </article>
 
-          <!-- 2. Hibiscus (Image Left, Text Right) -->
-          <article class="ingredient-row reverse">
-            <div class="ingredient-content">
-              <h3 class="ingredient-title font-display">Hibiscus</h3>
-              <p class="ingredient-botanical font-secondary">Hibiscus sabdariffa</p>
-              <p class="ingredient-desc font-body">
-                Packed with soothing antioxidants and vitamin C. Tones uterine tissues, restores vibrant moisture, and imparts a luxurious ruby infusion.
-              </p>
-            </div>
-            <div class="ingredient-img-wrapper">
-              <img src="assets/Ingredients/Hibiscus Flower.jpg" alt="Rich red Hibiscus flower" class="ingredient-img">
-            </div>
-          </article>
+              <!-- Card 2: Hibiscus -->
+              <article class="ingredient-card">
+                <div class="ingredient-card-bg">
+                  <img src="assets/Ingredients/Hibiscus Flower.jpg" alt="Rich red Hibiscus flower" class="ingredient-card-img" loading="lazy">
+                </div>
+                <div class="ingredient-card-overlay">
+                  <div class="ingredient-card-content">
+                    <span class="ingredient-badge font-secondary">02 • Antioxidant</span>
+                    <h3 class="ingredient-title font-display">Hibiscus</h3>
+                    <p class="ingredient-botanical font-secondary">Hibiscus sabdariffa</p>
+                    <div class="ingredient-desc-wrap">
+                      <p class="ingredient-desc font-body">
+                        Packed with soothing antioxidants and vitamin C. Tones uterine tissues, restores vibrant moisture, and imparts a luxurious ruby infusion.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </article>
 
-          <!-- 3. Rose Petals (Text Left, Image Right) -->
-          <article class="ingredient-row">
-            <div class="ingredient-content">
-              <h3 class="ingredient-title font-display">Rose Petals</h3>
-              <p class="ingredient-botanical font-secondary">Rosa damascena</p>
-              <p class="ingredient-desc font-body">
-                The ultimate heart-opening bloom. Softens delicate skin tissues, relieves emotional tension, and fills your space with divine aroma.
-              </p>
-            </div>
-            <div class="ingredient-img-wrapper">
-              <img src="assets/Ingredients/Dried Rose.jpg" alt="Dried organic Rose Petals" class="ingredient-img">
-            </div>
-          </article>
+              <!-- Card 3: Rose Petals -->
+              <article class="ingredient-card">
+                <div class="ingredient-card-bg">
+                  <img src="assets/Ingredients/Dried Rose.jpg" alt="Dried organic Rose Petals" class="ingredient-card-img" loading="lazy">
+                </div>
+                <div class="ingredient-card-overlay">
+                  <div class="ingredient-card-content">
+                    <span class="ingredient-badge font-secondary">03 • Softening</span>
+                    <h3 class="ingredient-title font-display">Rose Petals</h3>
+                    <p class="ingredient-botanical font-secondary">Rosa damascena</p>
+                    <div class="ingredient-desc-wrap">
+                      <p class="ingredient-desc font-body">
+                        The ultimate heart-opening bloom. Softens delicate skin tissues, relieves emotional tension, and fills your space with divine aroma.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </article>
 
-          <!-- 4. Chamomile (Image Left, Text Right) -->
-          <article class="ingredient-row reverse">
-            <div class="ingredient-content">
-              <h3 class="ingredient-title font-display">Chamomile</h3>
-              <p class="ingredient-botanical font-secondary">Matricaria chamomilla</p>
-              <p class="ingredient-desc font-body">
-                Renowned for calming nervous stress and intestinal restlessness. Gently relaxes cramped abdominal muscles for restorative sleep.
-              </p>
-            </div>
-            <div class="ingredient-img-wrapper">
-              <img src="assets/Ingredients/Chamomile.jpg" alt="Golden Chamomile blossoms" class="ingredient-img">
-            </div>
-          </article>
+              <!-- Card 4: Chamomile -->
+              <article class="ingredient-card">
+                <div class="ingredient-card-bg">
+                  <img src="assets/Ingredients/Chamomile.jpg" alt="Golden Chamomile blossoms" class="ingredient-card-img" loading="lazy">
+                </div>
+                <div class="ingredient-card-overlay">
+                  <div class="ingredient-card-content">
+                    <span class="ingredient-badge font-secondary">04 • Calming</span>
+                    <h3 class="ingredient-title font-display">Chamomile</h3>
+                    <p class="ingredient-botanical font-secondary">Matricaria chamomilla</p>
+                    <div class="ingredient-desc-wrap">
+                      <p class="ingredient-desc font-body">
+                        Renowned for calming nervous stress and intestinal restlessness. Gently relaxes cramped abdominal muscles for restorative sleep.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </article>
 
-          <!-- 5. Bay Leaves (Text Left, Image Right) -->
-          <article class="ingredient-row">
-            <div class="ingredient-content">
-              <h3 class="ingredient-title font-display">Bay Leaves</h3>
-              <p class="ingredient-botanical font-secondary">Laurus nobilis</p>
-              <p class="ingredient-desc font-body">
-                Brings purifying antimicrobial properties and deep elemental grounding to clear stagnant energy and balance overall moisture.
-              </p>
+              <!-- Card 5: Bay Leaves -->
+              <article class="ingredient-card">
+                <div class="ingredient-card-bg">
+                  <img src="assets/Ingredients/Bay leaves.jpg" alt="Aromatic Bay Leaves" class="ingredient-card-img" loading="lazy">
+                </div>
+                <div class="ingredient-card-overlay">
+                  <div class="ingredient-card-content">
+                    <span class="ingredient-badge font-secondary">05 • Purifying</span>
+                    <h3 class="ingredient-title font-display">Bay Leaves</h3>
+                    <p class="ingredient-botanical font-secondary">Laurus nobilis</p>
+                    <div class="ingredient-desc-wrap">
+                      <p class="ingredient-desc font-body">
+                        Brings purifying antimicrobial properties and deep elemental grounding to clear stagnant energy and balance overall moisture.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
             </div>
-            <div class="ingredient-img-wrapper">
-              <img src="assets/Ingredients/Bay leaves.jpg" alt="Aromatic Bay Leaves" class="ingredient-img">
-            </div>
-          </article>
+          </div>
+
+          <!-- Carousel Navigation Controls -->
+          <div class="ingredients-controls">
+            <button class="carousel-btn ingredient-nav-btn" id="prev-ingredient" aria-label="Previous ingredient">‹</button>
+            <div class="carousel-dots" id="ingredient-dots"></div>
+            <button class="carousel-btn ingredient-nav-btn" id="next-ingredient" aria-label="Next ingredient">›</button>
+          </div>
 
         </div>
 

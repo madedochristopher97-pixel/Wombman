@@ -745,47 +745,91 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   5. INGREDIENT STORY SECTION (Full Bleed Edge-to-Edge Editorial Cards)
+   5. INGREDIENT STORY SECTION (Interactive Botanical Carousel & Card Overlays)
    -------------------------------------------------------------------------- */
 .ingredient-story {
   background-color: var(--color-cream-light);
   position: relative;
-}
-
-.ingredients-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
-}
-
-.ingredient-row {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: stretch;
-  background: var(--color-white);
-  border-radius: var(--radius-xl);
-  overflow: hidden; /* Flush edge-to-edge image clipped to rounded card corners */
-  border: 1px solid var(--color-border-light);
-  box-shadow: var(--shadow-subtle);
-  padding: 0 !important; /* Zero padding on card container so image is 100% full-bleed */
-  transition: all var(--transition-smooth);
-}
-
-.ingredient-row:hover {
-  box-shadow: var(--shadow-medium);
-  border-color: var(--color-border);
-}
-
-.ingredient-img-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-  border-radius: 0 !important;
   overflow: hidden;
 }
 
-.ingredient-img {
+.ingredients-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.ingredients-carousel {
+  width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+  padding: var(--space-2) 4px var(--space-4) 4px;
+}
+
+.ingredients-carousel::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+.ingredients-track {
+  display: flex;
+  gap: var(--space-5);
+  width: max-content;
+}
+
+/* Individual Ingredient Card */
+.ingredient-card {
+  position: relative;
+  width: 300px;
+  height: 440px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+  border: 1px solid var(--color-border-light);
+  scroll-snap-align: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+@media (min-width: 768px) {
+  .ingredient-card {
+    width: 350px;
+    height: 480px;
+    scroll-snap-align: start;
+  }
+}
+
+@media (min-width: 1200px) {
+  .ingredient-card {
+    width: 370px;
+    height: 500px;
+  }
+}
+
+.ingredient-card:hover,
+.ingredient-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-orange);
+}
+
+/* Background Image with Zoom on Hover */
+.ingredient-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.ingredient-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -793,92 +837,155 @@ img {
   transition: transform var(--transition-slow);
 }
 
-.ingredient-row:hover .ingredient-img {
-  transform: scale(1.04);
+.ingredient-card:hover .ingredient-card-img {
+  transform: scale(1.08);
 }
 
-.ingredient-content {
+/* Fading Color Overlay & Content Container */
+.ingredient-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: var(--space-2);
-  padding: var(--space-8) var(--space-6);
+  justify-content: flex-end;
+  padding: var(--space-6) var(--space-5);
+  background: linear-gradient(
+    to top,
+    rgba(38, 14, 18, 0.95) 0%,
+    rgba(44, 20, 24, 0.78) 50%,
+    rgba(44, 20, 24, 0.25) 80%,
+    rgba(44, 20, 24, 0) 100%
+  );
+  transition: background var(--transition-smooth);
 }
 
-@media (min-width: 992px) {
-  .ingredient-row {
-    grid-template-columns: 1fr 1fr; /* 50% image, 50% text */
-    min-height: 380px;
-    align-items: stretch;
-  }
-
-  .ingredient-img-wrapper {
-    height: 100%;
-    min-height: 100%;
-  }
-
-  .ingredient-content {
-    padding: var(--space-10) var(--space-8);
-  }
-
-  /* Standard row: Image Left (50%), Text Right (50%) */
-  .ingredient-row .ingredient-img-wrapper {
-    order: 1;
-  }
-  .ingredient-row .ingredient-content {
-    order: 2;
-  }
-
-  /* Reverse row: Text Left (50%), Image Right (50%) */
-  .ingredient-row.reverse .ingredient-img-wrapper {
-    order: 2;
-  }
-  .ingredient-row.reverse .ingredient-content {
-    order: 1;
-  }
+.ingredient-card:hover .ingredient-card-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(38, 14, 18, 0.98) 0%,
+    rgba(44, 20, 24, 0.88) 60%,
+    rgba(44, 20, 24, 0.45) 85%,
+    rgba(44, 20, 24, 0.15) 100%
+  );
 }
 
-/* Mobile (< 992px): Image covers full upper half (top, left, right zero padding), text underneath */
-@media (max-width: 991px) {
-  .ingredient-row {
-    grid-template-columns: 1fr;
-  }
-
-  .ingredient-row .ingredient-img-wrapper,
-  .ingredient-row.reverse .ingredient-img-wrapper {
-    order: 1 !important;
-    height: 280px;
-    min-height: 280px;
-    width: 100%;
-  }
-
-  .ingredient-row .ingredient-content,
-  .ingredient-row.reverse .ingredient-content {
-    order: 2 !important;
-    padding: var(--space-6) var(--space-5);
-  }
+.ingredient-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  color: var(--color-white);
 }
 
-.ingredient-title {
+.ingredient-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  background: rgba(247, 147, 7, 0.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  align-self: flex-start;
+  margin-bottom: 6px;
+  border: 1px solid rgba(247, 147, 7, 0.35);
+}
+
+.ingredient-card .ingredient-title {
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 3.8vw, 3rem);
-  color: var(--color-text-dark);
-  line-height: 1.1;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.15;
+  margin: 0;
 }
 
-.ingredient-botanical {
+.ingredient-card .ingredient-botanical {
   font-family: var(--font-secondary);
-  font-size: 1.15rem;
-  color: var(--color-berry);
+  font-size: 0.95rem;
   font-style: italic;
-  margin-bottom: var(--space-1);
+  color: #FFD285;
+  margin-bottom: 6px;
 }
 
-.ingredient-desc {
+.ingredient-desc-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--transition-smooth), opacity var(--transition-smooth);
+  opacity: 0.85;
+}
+
+.ingredient-card:hover .ingredient-desc-wrap,
+.ingredient-card:focus-within .ingredient-desc-wrap,
+.ingredient-card.active .ingredient-desc-wrap {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+/* On Mobile/Touch devices, description is always fully visible */
+@media (max-width: 767px) {
+  .ingredient-desc-wrap {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+}
+
+.ingredient-card .ingredient-desc {
+  overflow: hidden;
   font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--color-text-muted);
-  line-height: 1.7;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+  padding-top: var(--space-1);
+}
+
+/* Controls (Prev/Next Nav Buttons & Dots) */
+.ingredients-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.ingredient-nav-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  color: var(--color-berry);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--transition-fast);
+}
+
+.ingredient-nav-btn:hover {
+  background: var(--color-berry);
+  color: var(--color-white);
+  border-color: var(--color-berry);
+  box-shadow: var(--shadow-berry);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ingredient-card,
+  .ingredient-card-img,
+  .ingredient-card-overlay,
+  .ingredient-desc-wrap {
+    transition: none !important;
+  }
 }
 
 /* --------------------------------------------------------------------------
