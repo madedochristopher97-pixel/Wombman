@@ -221,6 +221,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
+  // 5c. Model Shot Auto Slideshow (Why Women Love WOMB-man - 5s Crossfade)
+  const benefitsSlideshow = document.getElementById('benefits-slideshow');
+  if (benefitsSlideshow) {
+    const slides = benefitsSlideshow.querySelectorAll('.benefits-model-img');
+    const dotsContainer = document.getElementById('benefits-slide-dots');
+    let currentSlideIndex = 0;
+
+    if (slides.length > 1) {
+      if (dotsContainer) {
+        slides.forEach((_, idx) => {
+          const dot = document.createElement('button');
+          dot.classList.add('slide-dot');
+          if (idx === 0) dot.classList.add('active');
+          dot.setAttribute('aria-label', `Go to model shot ${idx + 1}`);
+          dot.addEventListener('click', () => setSlide(idx));
+          dotsContainer.appendChild(dot);
+        });
+      }
+
+      const dots = dotsContainer ? dotsContainer.querySelectorAll('.slide-dot') : [];
+
+      function setSlide(index) {
+        currentSlideIndex = (index + slides.length) % slides.length;
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === currentSlideIndex);
+          if (dots[i]) dots[i].classList.toggle('active', i === currentSlideIndex);
+        });
+      }
+
+      let slideshowInterval = setInterval(() => {
+        setSlide(currentSlideIndex + 1);
+      }, 5000);
+
+      benefitsSlideshow.addEventListener('mouseenter', () => clearInterval(slideshowInterval));
+      benefitsSlideshow.addEventListener('mouseleave', () => {
+        slideshowInterval = setInterval(() => {
+          setSlide(currentSlideIndex + 1);
+        }, 5000);
+      });
+    }
+  }
+
   // 6. FAQ Accordion
   const faqHeaders = document.querySelectorAll('.faq-header');
 

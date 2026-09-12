@@ -1686,11 +1686,19 @@ img {
   flex-direction: column;
   width: 100%;
   height: 100%;
+  min-height: 480px;
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-hover);
   border: 1px solid var(--color-border-light);
   background: var(--color-white);
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .benefits-media-card {
+    min-height: 100%;
+  }
 }
 
 .benefits-main-image-wrap {
@@ -1702,16 +1710,59 @@ img {
 }
 
 .benefits-model-img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
   display: block;
-  transition: transform var(--transition-slow);
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform var(--transition-slow);
+  z-index: 1;
+}
+
+.benefits-model-img.active {
+  opacity: 1;
+  z-index: 2;
 }
 
 .benefits-media-card:hover .benefits-model-img {
   transform: scale(1.03);
+}
+
+.benefits-slide-dots {
+  position: absolute;
+  bottom: var(--space-3);
+  right: var(--space-3);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(44, 20, 24, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.benefits-slide-dots .slide-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all var(--transition-fast);
+}
+
+.benefits-slide-dots .slide-dot.active {
+  width: 22px;
+  border-radius: var(--radius-full);
+  background: var(--color-orange);
 }
 
 /* Right Content List */
