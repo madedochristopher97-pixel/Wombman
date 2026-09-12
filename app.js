@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Product Collection Switcher (Steam Blend vs Bath Salt)
+  // 3. Product Collection Switcher (Steam Blend vs Salt Bath)
   const productToggleBtns = document.querySelectorAll('.product-toggle-btn');
   const productPanels = document.querySelectorAll('.product-panel');
 
