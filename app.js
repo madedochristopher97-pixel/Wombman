@@ -435,4 +435,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // 7. Interactive Bento Item Image Preview
+  const bentoItems = document.querySelectorAll('.bento-item');
+  if (bentoItems.length > 0) {
+    bentoItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const imgSrc = item.getAttribute('data-img');
+        if (imgSrc) {
+          window.open(imgSrc, '_blank');
+        }
+      });
+    });
+  }
 });

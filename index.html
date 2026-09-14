@@ -266,28 +266,50 @@
         <div class="product-panel active" id="product-steam">
           <div class="spotlight-grid">
             
-            <!-- Interactive Gallery Showcase -->
-            <div class="product-gallery">
-              <div class="main-image-container">
-                <img id="main-steam-img" src="assets/Product Photos/Vertical Product Shot.jpeg" alt="Wombman SACRED WOMB STEAM BLEND" class="main-product-img">
-              </div>
-              
-              <div class="thumbnail-row">
-                <button class="thumb-btn active" data-target="main-steam-img" data-img="assets/Product Photos/Vertical Product Shot.jpeg" aria-label="View vertical product shot">
-                  <img src="assets/Product Photos/Vertical Product Shot.jpeg" alt="Steam blend thumbnail 1">
-                </button>
-                <button class="thumb-btn" data-target="main-steam-img" data-img="assets/Product Photos/Scenic Product 2.jpeg" aria-label="View scenic product shot">
-                  <img src="assets/Product Photos/Scenic Product 2.jpeg" alt="Steam blend thumbnail 2">
-                </button>
-                <button class="thumb-btn" data-target="main-steam-img" data-img="assets/Product Photos/Thank you Imagery.jpeg" aria-label="View thank you imagery">
-                  <img src="assets/Product Photos/Thank you Imagery.jpeg" alt="Steam blend thumbnail 3">
-                </button>
-                <button class="thumb-btn" data-target="main-steam-img" data-img="assets/Product Photos/Product Hold.jpeg" aria-label="View product held in hand">
-                  <img src="assets/Product Photos/Product Hold.jpeg" alt="Steam blend thumbnail 4">
-                </button>
-                <button class="thumb-btn" data-target="main-steam-img" data-img="assets/Product Photos/Scenic product Imagery.jpeg" aria-label="View scenic imagery">
-                  <img src="assets/Product Photos/Scenic product Imagery.jpeg" alt="Steam blend thumbnail 5">
-                </button>
+            <!-- Interactive Bento Grid Gallery Showcase -->
+            <div class="product-gallery bento-gallery">
+              <div class="bento-grid-showcase" id="bento-steam-grid">
+                
+                <!-- Tile 1: Main Vertical Product Shot (Hero Tile) -->
+                <div class="bento-item bento-hero" data-img="assets/Product Photos/Vertical Product Shot.jpeg">
+                  <img src="assets/Product Photos/Vertical Product Shot.jpeg" alt="Vertical Product Shot" class="bento-img">
+                  <div class="bento-overlay">
+                    <span class="bento-tag font-secondary">Signature Pack</span>
+                  </div>
+                </div>
+
+                <!-- Tile 2: Scenic Product 2 -->
+                <div class="bento-item bento-medium" data-img="assets/Product Photos/Scenic Product 2.jpeg">
+                  <img src="assets/Product Photos/Scenic Product 2.jpeg" alt="Scenic Product 2" class="bento-img">
+                  <div class="bento-overlay">
+                    <span class="bento-tag font-secondary">Herbal Botanicals</span>
+                  </div>
+                </div>
+
+                <!-- Tile 3: Thank You Imagery -->
+                <div class="bento-item bento-small" data-img="assets/Product Photos/Thank you Imagery.jpeg">
+                  <img src="assets/Product Photos/Thank you Imagery.jpeg" alt="Thank You Imagery" class="bento-img">
+                  <div class="bento-overlay">
+                    <span class="bento-tag font-secondary">Sacred Ritual</span>
+                  </div>
+                </div>
+
+                <!-- Tile 4: Product Hold -->
+                <div class="bento-item bento-small" data-img="assets/Product Photos/Product Hold.jpeg">
+                  <img src="assets/Product Photos/Product Hold.jpeg" alt="Product Hold" class="bento-img">
+                  <div class="bento-overlay">
+                    <span class="bento-tag font-secondary">Handcrafted Care</span>
+                  </div>
+                </div>
+
+                <!-- Tile 5: Scenic Product Imagery -->
+                <div class="bento-item bento-wide" data-img="assets/Product Photos/Scenic product Imagery.jpeg">
+                  <img src="assets/Product Photos/Scenic product Imagery.jpeg" alt="Scenic product Imagery" class="bento-img">
+                  <div class="bento-overlay">
+                    <span class="bento-tag font-secondary">100% Pure Organic</span>
+                  </div>
+                </div>
+
               </div>
             </div>
 
@@ -393,19 +415,26 @@
         <div class="product-panel" id="product-bath">
           <div class="spotlight-grid">
             
-            <!-- Interactive Gallery Showcase -->
-            <div class="product-gallery">
-              <div class="main-image-container">
-                <img id="main-bath-img" src="assets/Product Photos/Salt Bath NEW.png" alt="Wombman SACRED SALT BATH" class="main-product-img">
-              </div>
-              
-              <div class="thumbnail-row">
-                <button class="thumb-btn active" data-target="main-bath-img" data-img="assets/Product Photos/Salt Bath NEW.png" aria-label="View Salt Bath New Photo">
-                  <img src="assets/Product Photos/Salt Bath NEW.png" alt="Salt Bath Photo 1">
-                </button>
-                <button class="thumb-btn" data-target="main-bath-img" data-img="assets/Product Photos/Salt Bath 2.jpeg" aria-label="View Salt Bath 2 Photo">
-                  <img src="assets/Product Photos/Salt Bath 2.jpeg" alt="Salt Bath Photo 2">
-                </button>
+            <!-- Interactive Bento Grid Gallery Showcase -->
+            <div class="product-gallery bento-gallery">
+              <div class="bento-grid-showcase bento-grid-2col" id="bento-bath-grid">
+                
+                <!-- Tile 1: Salt Bath Main -->
+                <div class="bento-item bento-hero-half" data-img="assets/Product Photos/Salt Bath NEW.png">
+                  <img src="assets/Product Photos/Salt Bath NEW.png" alt="Wombman Sacred Salt Bath Package" class="bento-img">
+                  <div class="bento-overlay">
+                    <span class="bento-tag font-secondary">Restorative Bath Salts</span>
+                  </div>
+                </div>
+
+                <!-- Tile 2: Salt Bath 2 -->
+                <div class="bento-item bento-hero-half" data-img="assets/Product Photos/Salt Bath 2.jpeg">
+                  <img src="assets/Product Photos/Salt Bath 2.jpeg" alt="Sacred Salt Bath Botanicals and Crystals" class="bento-img">
+                  <div class="bento-overlay">
+                    <span class="bento-tag font-secondary">Botanical Infusion</span>
+                  </div>
+                </div>
+
               </div>
             </div>
 
@@ -707,12 +736,24 @@
       <div class="container">
         <div class="founder-grid">
           
-          <div class="founder-img-frame">
-            <img src="assets/Founder/Founder Img.jpeg" alt="Wombman Founder" class="founder-img">
-            <div class="founder-quote-box">
-              <p class="founder-quote-text font-secondary">
-                “Womb healing was not simply about rituals—it was about developing a relationship with yourself.”
-              </p>
+          <div class="founder-left-col">
+            <div class="founder-img-frame">
+              <img src="assets/Founder/Founder Img.jpeg" alt="Wombman Founder" class="founder-img">
+              <div class="founder-quote-box">
+                <p class="founder-quote-text font-secondary">
+                  “Womb healing was not simply about rituals—it was about developing a relationship with yourself.”
+                </p>
+              </div>
+            </div>
+
+            <!-- Sacred Promise / Value Pillars Card -->
+            <div class="founder-values-card">
+              <h4 class="founder-values-title font-display">Our Sacred Promise</h4>
+              <ul class="founder-values-list font-body">
+                <li>🌱 <strong>100% Organic &amp; Pure:</strong> Ethically sourced botanicals, free from additives or artificial fragrance.</li>
+                <li>💖 <strong>Ancestral Wisdom:</strong> Time-tested herbal traditions modernized for intentional self-care.</li>
+                <li>✨ <strong>Handcrafted in Kenya:</strong> Prepared in small batches with love, reverence, and therapeutic intention.</li>
+              </ul>
             </div>
           </div>
 
