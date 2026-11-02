@@ -1,4 +1,21 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wombmanafrica.com/sitemap.xml
+# AI Crawlers & Answer Engines (AEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemaps & LLM Context
+Sitemap: https://www.wombmanafrica.com/sitemap.xml
